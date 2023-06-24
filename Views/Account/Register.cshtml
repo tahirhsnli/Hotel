@@ -1,0 +1,85 @@
+﻿
+@{
+    Layout = null;
+}
+@model RegisterVM
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form by Colorlib</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="~/login/css/style.css">
+</head>
+<body>
+
+    <div class="main">
+
+        <!-- Sign up form -->
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Sign up</h2>
+                        <form method="POST" class="register-form" id="register-form">
+                            <div class="form-group">
+                                <label asp-for="Name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input asp-for="Name" type="text" name="name" placeholder="Your Name" />
+                                <span asp-validation-for="Name"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Surname"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input asp-for="Surname" type="text" name="surname" placeholder="Your Surname" />
+                                <span asp-validation-for="Surname"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Username"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input asp-for="Username" type="text" name="username" placeholder="Your Username" />
+                                <span asp-validation-for="Username"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="EmailAddress"><i class="zmdi zmdi-email"></i></label>
+                                <input asp-for="EmailAddress" placeholder="Your Email" />
+                                <span asp-validation-for="EmailAddress"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Password"><i class="zmdi zmdi-lock"></i></label>
+                                <input asp-for="Password" type="password" placeholder="Password" />
+                                <span asp-validation-for="Password"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ConfirmPassword"><i class="zmdi zmdi-lock-outline"></i></label>
+                                <input asp-for="ConfirmPassword" type="password" placeholder="Repeat your password" />
+                                <span asp-validation-for="ConfirmPassword"></span>
+                            </div>
+                            <div asp-validation-summary="ModelOnly"></div>
+                            <div class="form-group">
+                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+                            </div>
+                            <div class="form-group form-button">
+                                <button type="submit" name="signup" id="signup" class="form-submit" value="Register"></button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="~/login/images/signup-image.jpg" alt="sing up image"></figure>
+                        <a href="#" class="signup-image-link">I am already member</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JS -->
+    <script src="~/login/vendor/jquery/jquery.min.js"></script>
+    <script src="~/login/js/main.js"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
