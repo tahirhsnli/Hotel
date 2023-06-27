@@ -1,0 +1,33 @@
+﻿@model Dictionary<string,string>
+<section class="about section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mb-30 animate-box" data-animate-effect="fadeInUp">
+                <span>
+                    <i class="star-rating"></i>
+                    <i class="star-rating"></i>
+                    <i class="star-rating"></i>
+                    <i class="star-rating"></i>
+                    <i class="star-rating"></i>
+                </span>
+                <div class="section-subtitle">@Model["Name"]</div>
+                <div class="section-title">@Model["Title"]</div>
+                <p>@Model["Description1"]</p>
+                <p>@Model["Description2"]</p>
+                <!-- call -->
+                <div class="reservations">
+                    <div class="icon">@Model["Phone"]</div>
+                    <div class="text">
+                        <p>Reservation</p> <p href="tel:855-100-4444">855 100 4444</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-md-3 animate-box" data-animate-effect="fadeInUp">
+                <img src="~/assets/img/@Model["FirstImage"]" alt="" class="mt-90 mb-30">
+            </div>
+            <div class="col col-md-3 animate-box" data-animate-effect="fadeInUp">
+                <img src="~/assets/img/@Model["SecondImage"]" alt="">
+            </div>
+        </div>
+    </div>
+</section>

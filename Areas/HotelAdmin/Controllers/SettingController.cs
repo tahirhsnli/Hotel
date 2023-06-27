@@ -22,7 +22,12 @@ namespace Hotel.Areas.HotelAdmin.Controllers
         }
         public async Task<IActionResult> Edit(int id)
         {
-            return View(await _context.Settings.FirstOrDefaultAsync(x => x.Id == id));
+            Setting? exist = await _context.Settings.FirstOrDefaultAsync(x => x.Id == id);
+            SettingVM setting = new SettingVM()
+            {
+                Value = exist.Value
+            };
+            return View(setting);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]

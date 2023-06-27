@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aTVKIJu7+nps48bi8BBhhhDeB9xOC4pOnrQPGy2EILHZa1uyItfpODIb+O+DV4Lvh2GT8Q217H/4ZlQqwmA+zw==",
+  "dgSpecHash": "6fLEF1y8KS4nk5D+uMkkrkJVvsVBNmNsWCUfsRPu/roteAc0mqlSI8i51kWbkOdi5d32E0ImKpltouU5rXxuIA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\Desktop\\Hotel\\Hotel\\Hotel.csproj",
+  "projectFilePath": "C:\\Users\\user\\Desktop\\Hotell\\Hotel\\Hotel.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

@@ -73,7 +73,16 @@ namespace Hotel.Areas.HotelAdmin.Controllers
         public async Task<IActionResult> Edit(int id)
         {
             ViewBag.Profession = await _context.Professions.ToListAsync();
-            return View(await _context.Employees.Where(x=>x.IsDeleted==false).Include(x=>x.Profession).FirstOrDefaultAsync(x=>x.Id == id));
+            Employee? exist = await _context.Employees.Where(x => x.IsDeleted == false).Include(x => x.Profession).FirstOrDefaultAsync(x => x.Id == id);
+			EmployeeVM employee = new EmployeeVM()
+            {
+                Name = exist.Name,
+                Surname = exist.Surname,
+                Age = exist.Age,
+                Phone = exist.Phone,
+                ProfessionId = exist.ProfessionId,
+            };
+            return View(employee);
 		}
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -82,7 +91,7 @@ namespace Hotel.Areas.HotelAdmin.Controllers
 			ViewBag.Profession = await _context.Professions.ToListAsync();
 			if (!ModelState.IsValid)
 			{
-				ModelState.AddModelError("", "Team is null");
+				ModelState.AddModelError("", "Employee is null");
 				return View();
 			}
 			Employee? exist = await _context.Employees.Where(x => x.IsDeleted == false).Include(x => x.Profession).FirstOrDefaultAsync(x => x.Id == employeeVM.Id);

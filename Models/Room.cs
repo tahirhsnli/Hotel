@@ -17,16 +17,11 @@ namespace Hotel.Models
         public int RoomTypeId { get; set; }
         public RoomType RoomType { get; set; } = null!;
         public List<Bookings>? Bookings { get; set; }
-        //public List<RoomImage>? Images { get; set; }
-        //[NotMapped]
-        //public IFormFile? PhotoFront { get; set; }
-        //[NotMapped]
-        //public IFormFile? PhotoBack { get; set; }
-        //[NotMapped]
-        //public List<RoomImage>? Files { get; set; }
-        //public string? Img { get; set; }
-        //[NotMapped]
-        //public IFormFile ImageFile { get; set; } = null!;
+        public List<RoomImage>? RoomImages { get; set; }
+        [NotMapped]
+        public IFormFile? MainFile { get; set; }
+        [NotMapped]
+        public List<IFormFile>? Files{ get; set; }
 
     }
 }

@@ -44,10 +44,10 @@ namespace Hotel.Migrations
                     ChildrenCapacity = table.Column<int>(type: "int", nullable: false),
                     PeopleCapacity = table.Column<int>(type: "int", nullable: false),
                     Area = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    IsExist = table.Column<bool>(type: "bit", nullable: false),
-                    IsBalcony = table.Column<bool>(type: "bit", nullable: false),
-                    IsAnimal = table.Column<bool>(type: "bit", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
+                    IsExist = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
+                    IsBalcony = table.Column<bool>(type: "bit", nullable: false, defaultValue:false),
+                    IsAnimal = table.Column<bool>(type: "bit", nullable: false,defaultValue: false),
                     RoomTypeId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
