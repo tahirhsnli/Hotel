@@ -19,9 +19,10 @@ namespace Hotel.Areas.HotelAdmin.Controllers
         }
         public async Task<IActionResult> Index()
 		{
-			var rooms = await _context.Rooms.Where(x => x.IsDeleted == false)
-							  .Include(x => x.RoomType).Include(x => x.RoomImages)
-							  .Include(x => x.Bookings).ToListAsync();
+			ViewBag.RoomType = await _context.RoomTypes.ToListAsync();
+			var rooms = await _context.Rooms
+							  .Include(x => x.RoomType).Include(x => x.Bookings).Include(x => x.RoomImages)
+							  .ToListAsync();
             return View(rooms);
 		}
 		public async Task<IActionResult> Create()

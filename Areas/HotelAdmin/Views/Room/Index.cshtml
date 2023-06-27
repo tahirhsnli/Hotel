@@ -1,6 +1,7 @@
 ﻿
 @{
-    ViewData["Title"] = "Index";
+	ViewData["Title"] = "Index";
+	int count = 1;
 }
 @model List<Room>
 <div class="content container-fluid">
@@ -26,6 +27,8 @@
 									<th>Room Type</th>
 									<th>Room Number</th>
 									<th>RoomPrice</th>
+									<th>People Capacity</th>
+									<th>Children Capacity</th>
 									<th>Area</th>
 									<th class="text-right">Actions</th>
 								</tr>
@@ -34,16 +37,17 @@
 								@foreach (var item in Model)
 								{
 									<tr>
-										<td>BKG-0001</td>
+										<td>@(count++)</td>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="~/admin/img/room/@item.MainFile" alt="User Image"></a>
-												<a href="profile.html">Tommy Bernal <span>#0001</span></a>
+												<a class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="~/assets/img/room/@item.RoomImages.Where(x=>x.IsMain==true).FirstOrDefault().Image" alt="User Image"></a>
 											</h2>
 										</td>
 										<td>@item.RoomType.Name</td>
 										<td>@item.RoomNumber</td>
 										<td>@item.RoomPrice</td>
+										<td>@item.PeopleCapacity</td>
+										<td>@item.ChildrenCapacity</td>
 										<td>@item.Area</td>
 										<td class="text-right">
 											<div class="dropdown dropdown-action">

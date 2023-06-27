@@ -42,6 +42,16 @@ namespace Hotel.Areas.HotelAdmin.Controllers
                 ModelState.AddModelError("", "Employee is null");
                 return View();
             }
+            if(employeeVM.Age < 18)
+            {
+				ModelState.AddModelError("", "Employee is child");
+				return View();
+			}
+            if(employeeVM.Phone < 0 && employeeVM.Phone > 10000000000)
+            {
+				ModelState.AddModelError("", "Employee number wrong");
+				return View();
+			}
             Employee employee = new Employee()
             {
                 Name = employeeVM.Name,

@@ -15,7 +15,7 @@ namespace Hotel.Models
         public bool IsBalcony { get; set; }
         public bool IsAnimal { get; set; }
         public int RoomTypeId { get; set; }
-        public RoomType RoomType { get; set; } = null!;
+        public RoomType? RoomType { get; set; }
         public List<Bookings>? Bookings { get; set; }
         public List<RoomImage>? RoomImages { get; set; }
         [NotMapped]

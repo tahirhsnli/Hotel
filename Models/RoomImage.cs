@@ -2,8 +2,9 @@
 
 namespace Hotel.Models
 {
-    public class RoomImage : BaseEntity
+    public class RoomImage 
     {
+        public int Id { get; set; }
         public string? Image { get; set; }
         [NotMapped]
         public IFormFile ImageFile { get; set; } = null!;
