@@ -131,13 +131,19 @@
 			<div class="sidebar-inner slimscroll">
 				<div id="sidebar-menu" class="sidebar-menu">
 					<ul>
-						<li class="active"> <a href="index.html"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a> </li>
+						<li class="active"> <a asp-controller="DashBoard" asp-action="Index" asp-area="HotelAdmin"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a> </li>
 						<li class="list-divider"></li>
+						<li class="submenu">
+							<a href="#"><i class="fas fa-key"></i> <span> Rooms </span> <span class="menu-arrow"></span></a>
+							<ul class="submenu_class" style="display: none;">
+								<li><a asp-controller="Room" asp-action="Index" asp-area="HotelAdmin">All Rooms </a></li>
+								<li><a asp-controller="Room" asp-action="Create" asp-area="HotelAdmin"> Add Rooms </a></li>
+							</ul>
+						</li>
 						<li class="submenu">
 							<a href="#"><i class="fas fa-suitcase"></i> <span> Booking </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
 								<li><a asp-controller="Booking" asp-action="Index" asp-area="HotelAdmin"> All Booking </a></li>
-								<li><a asp-controller="Booking" asp-action="Edit" asp-area="HotelAdmin"> Edit Booking </a></li>
 								<li><a asp-controller="Booking" asp-action="Create" asp-area="HotelAdmin"> Add Booking </a></li>
 							</ul>
 						</li>
@@ -145,80 +151,50 @@
 							<a href="#"><i class="fas fa-user"></i> <span> Customers </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
 								<li><a asp-controller="Customer" asp-action="Index" asp-area="HotelAdmin"> All customers </a></li>
-								<li><a asp-controller="Customer" asp-action="Edit" asp-area="HotelAdmin"> Edit Customer </a></li>
 								<li><a asp-controller="Customer" asp-action="Create" asp-area="HotelAdmin"> Add Customer </a></li>
 							</ul>
 						</li>
 						<li class="submenu">
-							<a href="#"><i class="fas fa-key"></i> <span> Rooms </span> <span class="menu-arrow"></span></a>
+							<a href="#"><i class="fas fa-user"></i> <span> Profession </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
-								<li><a asp-controller="Room" asp-action="Index" asp-area="HotelAdmin">All Rooms </a></li>
-								<li><a asp-controller="Room" asp-action="Edit" asp-area="HotelAdmin"> Edit Rooms </a></li>
-								<li><a asp-controller="Room" asp-action="Create" asp-area="HotelAdmin"> Add Rooms </a></li>
+								<li><a asp-controller="Profession" asp-action="Index" asp-area="HotelAdmin">All Profession</a></li>
+								<li><a asp-controller="Profession" asp-action="Create" asp-area="HotelAdmin"> Add Profession </a></li>
 							</ul>
 						</li>
 						<li class="submenu">
 							<a href="#"><i class="fas fa-user"></i> <span> Employee </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
 								<li><a asp-controller="Employee" asp-action="Index" asp-area="HotelAdmin">All Employee</a></li>
-								<li><a href="edit-staff.html"> Edit Employee </a></li>
 								<li><a asp-controller="Employee" asp-action="Create" asp-area="HotelAdmin"> Add Employee </a></li>
 							</ul>
 						</li>
 						<li> <a asp-controller="Pricing" asp-action="Index" asp-area="HotelAdmin"><i class="far fa-money-bill-alt"></i> <span>Pricing</span></a> </li>
 						<li class="submenu">
-							<a href="#"><i class="fas fa-share-alt"></i> <span> Apps </span> <span class="menu-arrow"></span></a>
+							<a href="#"><i class="far fa-bell"></i> <span> Slider </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
-								<li><a href="chat.html"><i class="fas fa-comments"></i><span> Chat </span></a></li>
-								<li class="submenu">
-									<a href="#"><i class="fas fa-video camera"></i> <span> Calls </span> <span class="menu-arrow"></span></a>
-									<ul class="submenu_class" style="display: none;">
-										<li><a href="voice-call.html"> Voice Call </a></li>
-										<li><a href="video-call.html"> Video Call </a></li>
-										<li><a href="incoming-call.html"> Incoming Call </a></li>
-									</ul>
-								</li>
-								<li class="submenu">
-									<a href="#"><i class="fas fa-envelope"></i> <span> Email </span> <span class="menu-arrow"></span></a>
-									<ul class="submenu_class" style="display: none;">
-										<li><a href="compose.html">Compose Mail </a></li>
-										<li><a href="inbox.html"> Inbox </a></li>
-										<li><a href="mail-veiw.html"> Mail Veiw </a></li>
-									</ul>
-								</li>
+								<li><a asp-controller="Slider" asp-action="Index" asp-area="HotelAdmin">All Slider</a></li>
+								<li><a asp-controller="Slider" asp-action="Create" asp-area="HotelAdmin"> Add Slider </a></li>
 							</ul>
 						</li>
 						<li class="submenu">
-							<a href="#"><i class="fas fa-user"></i> <span> Employees </span> <span class="menu-arrow"></span></a>
+							<a href="#"><i class="far fa-money-bill-alt"></i> <span> Facility </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
-								<li><a href="employees.html">Employees List </a></li>
-								<li><a href="leaves.html">Leaves </a></li>
-								<li><a href="holidays.html">Holidays </a></li>
-								<li><a href="attendance.html">Attendance </a></li>
+								<li><a asp-controller="Facility" asp-action="Index" asp-area="HotelAdmin">All Facilities </a></li>
+								<li><a asp-controller="Facility" asp-action="Create" asp-area="HotelAdmin">All Facilities >Add Facility </a></li>
 							</ul>
 						</li>
 						<li class="submenu">
-							<a href="#"><i class="far fa-money-bill-alt"></i> <span> Accounts </span> <span class="menu-arrow"></span></a>
+							<a href="#"><i class="fas fa-key"></i> <span> About </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
-								<li><a href="invoices.html">Invoices </a></li>
-								<li><a href="payments.html">Payments </a></li>
-								<li><a href="expenses.html">Expenses </a></li>
-								<li><a href="taxes.html">Taxes </a></li>
-								<li><a href="provident-fund.html">Provident Fund </a></li>
+								<li><a asp-controller="About" asp-action="Index" asp-area="HotelAdmin"> About </a></li>
+								<li><a asp-controller="About" asp-action="Create" asp-area="HotelAdmin"> Edit About </a></li>
 							</ul>
 						</li>
 						<li class="submenu">
 							<a href="#"><i class="fas fa-key"></i> <span> Settings </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
 								<li><a asp-controller="Setting" asp-action="Index" asp-area="HotelAdmin">All Settings </a></li>
-								<li><a asp-controller="Setting" asp-action="Edit" asp-area="HotelAdmin"> Edit Setting </a></li>
-							</ul>
-						</li>
-						<li class="submenu">
-							<a href="#"><i class="fas fa-book"></i> <span> Payroll </span> <span class="menu-arrow"></span></a>
-							<ul class="submenu_class" style="display: none;">
-								<li><a href="salary.html">Employee Salary </a></li>
-								<li><a href="salary-veiw.html">Payslip </a></li>
+								<li><a asp-controller="Setting" asp-action="Create" asp-area="HotelAdmin"> Edit Setting </a></li>
 							</ul>
 						</li>
 						<li> <a href="calendar.html"><i class="fas fa-calendar-alt"></i> <span>Calendar</span></a> </li>
