@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "vbudPfle9jRCE98QK0qNQVOxejxwYRHSUAZcsBAZ9+M=",
+  "Hash": "TEp+PiPV/PQLIvbcwQ1ULu0fCHFjtWX0R8vKcLVOj50=",
   "Source": "Hotel",
   "BasePath": "_content/Hotel",
   "Mode": "Default",
@@ -2108,6 +2108,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\employee\\4596ded0-a3fe-4f1f-8ebf-b075351d5b5c_face11.jpg"
     },
     {
+      "Identity": "C:\\Users\\user\\Desktop\\Hotell\\Hotel\\wwwroot\\assets\\img\\employee\\64665557-7604-4a9b-9ffd-523a8c6eb2da_face6.jpg",
+      "SourceId": "Hotel",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\Hotell\\Hotel\\wwwroot\\",
+      "BasePath": "_content/Hotel",
+      "RelativePath": "assets/img/employee/64665557-7604-4a9b-9ffd-523a8c6eb2da_face6.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\employee\\64665557-7604-4a9b-9ffd-523a8c6eb2da_face6.jpg"
+    },
+    {
       "Identity": "C:\\Users\\user\\Desktop\\Hotell\\Hotel\\wwwroot\\assets\\img\\employee\\b4d46c0a-3a00-452a-802e-408c0bc797ac_face11.jpg",
       "SourceId": "Hotel",
       "SourceType": "Discovered",
@@ -2123,6 +2140,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\employee\\b4d46c0a-3a00-452a-802e-408c0bc797ac_face11.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\user\\Desktop\\Hotell\\Hotel\\wwwroot\\assets\\img\\employee\\d4bbab4d-aa36-43f4-8b42-d77214a10b40_face12.jpg",
+      "SourceId": "Hotel",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\Hotell\\Hotel\\wwwroot\\",
+      "BasePath": "_content/Hotel",
+      "RelativePath": "assets/img/employee/d4bbab4d-aa36-43f4-8b42-d77214a10b40_face12.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\employee\\d4bbab4d-aa36-43f4-8b42-d77214a10b40_face12.jpg"
     },
     {
       "Identity": "C:\\Users\\user\\Desktop\\Hotell\\Hotel\\wwwroot\\assets\\img\\employee\\d9dc7787-5938-4b7d-9b7b-cd95513b548d_face9.jpg",
@@ -2482,23 +2516,6 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\room\\3472c93f-9a74-4bd8-8b5f-1bef3b9bf9da_face15.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Desktop\\Hotell\\Hotel\\wwwroot\\assets\\img\\room\\7ce1a38f-7b0d-443a-bbcd-dd5a55434277_face7.jpg",
-      "SourceId": "Hotel",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Desktop\\Hotell\\Hotel\\wwwroot\\",
-      "BasePath": "_content/Hotel",
-      "RelativePath": "assets/img/room/7ce1a38f-7b0d-443a-bbcd-dd5a55434277_face7.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\img\\room\\7ce1a38f-7b0d-443a-bbcd-dd5a55434277_face7.jpg"
-    },
-    {
       "Identity": "C:\\Users\\user\\Desktop\\Hotell\\Hotel\\wwwroot\\assets\\img\\room\\88c601a4-6e8d-4b67-b946-eb917fc53b8e_face13.jpg",
       "SourceId": "Hotel",
       "SourceType": "Discovered",
@@ -2514,6 +2531,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\room\\88c601a4-6e8d-4b67-b946-eb917fc53b8e_face13.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\user\\Desktop\\Hotell\\Hotel\\wwwroot\\assets\\img\\room\\8ad7eba1-051f-48c4-9165-5bde8359033c_face11.jpg",
+      "SourceId": "Hotel",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\Hotell\\Hotel\\wwwroot\\",
+      "BasePath": "_content/Hotel",
+      "RelativePath": "assets/img/room/8ad7eba1-051f-48c4-9165-5bde8359033c_face11.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\room\\8ad7eba1-051f-48c4-9165-5bde8359033c_face11.jpg"
     },
     {
       "Identity": "C:\\Users\\user\\Desktop\\Hotell\\Hotel\\wwwroot\\assets\\img\\room\\9b2d2dd5-a2ee-45e2-b6d2-76e38171f30c_face1.jpg",
@@ -2533,12 +2567,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\room\\9b2d2dd5-a2ee-45e2-b6d2-76e38171f30c_face1.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Desktop\\Hotell\\Hotel\\wwwroot\\assets\\img\\room\\a4dd7efe-e127-4be1-b24a-50a1036ea367_face10.jpg",
+      "Identity": "C:\\Users\\user\\Desktop\\Hotell\\Hotel\\wwwroot\\assets\\img\\room\\ba2bc4e5-de92-4dfb-8ddd-9018b6c4c8d6_face11.jpg",
       "SourceId": "Hotel",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\Desktop\\Hotell\\Hotel\\wwwroot\\",
       "BasePath": "_content/Hotel",
-      "RelativePath": "assets/img/room/a4dd7efe-e127-4be1-b24a-50a1036ea367_face10.jpg",
+      "RelativePath": "assets/img/room/ba2bc4e5-de92-4dfb-8ddd-9018b6c4c8d6_face11.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2547,7 +2581,24 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\img\\room\\a4dd7efe-e127-4be1-b24a-50a1036ea367_face10.jpg"
+      "OriginalItemSpec": "wwwroot\\assets\\img\\room\\ba2bc4e5-de92-4dfb-8ddd-9018b6c4c8d6_face11.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\user\\Desktop\\Hotell\\Hotel\\wwwroot\\assets\\img\\room\\c106b082-2b51-4563-bcff-71df4e21db10_face8.jpg",
+      "SourceId": "Hotel",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\Hotell\\Hotel\\wwwroot\\",
+      "BasePath": "_content/Hotel",
+      "RelativePath": "assets/img/room/c106b082-2b51-4563-bcff-71df4e21db10_face8.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\room\\c106b082-2b51-4563-bcff-71df4e21db10_face8.jpg"
     },
     {
       "Identity": "C:\\Users\\user\\Desktop\\Hotell\\Hotel\\wwwroot\\assets\\img\\room\\ca64108f-e0b8-4ddf-8802-211780615dba_face3.jpg",
@@ -2565,6 +2616,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\room\\ca64108f-e0b8-4ddf-8802-211780615dba_face3.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\user\\Desktop\\Hotell\\Hotel\\wwwroot\\assets\\img\\room\\cd8769b2-0293-48cf-a98b-73f3a0100fca_face6.jpg",
+      "SourceId": "Hotel",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\Hotell\\Hotel\\wwwroot\\",
+      "BasePath": "_content/Hotel",
+      "RelativePath": "assets/img/room/cd8769b2-0293-48cf-a98b-73f3a0100fca_face6.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\room\\cd8769b2-0293-48cf-a98b-73f3a0100fca_face6.jpg"
     },
     {
       "Identity": "C:\\Users\\user\\Desktop\\Hotell\\Hotel\\wwwroot\\assets\\img\\room\\e5faca42-ced9-4af5-823d-f5487b2d2927_face14.jpg",

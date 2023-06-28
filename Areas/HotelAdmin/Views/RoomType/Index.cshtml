@@ -3,13 +3,13 @@
 	ViewData["Title"] = "Index";
 	int count = 1 + (Model.CurrentPage - 1) * 3;
 }
-@model PaginateVM<Employee>
+@model PaginateVM<RoomType>
 <div class="content container-fluid">
 	<div class="page-header">
 		<div class="row align-items-center">
 			<div class="col">
 				<div class="mt-5">
-					<h4 class="card-title float-left mt-2">All Employees</h4> <a asp-action="Create" class="btn btn-primary float-right veiwbutton">Add Employee</a>
+					<h4 class="card-title float-left mt-2">All RoomTypes</h4> <a asp-action="Create" class="btn btn-primary float-right veiwbutton">Add RoomType</a>
 				</div>
 			</div>
 		</div>
@@ -25,10 +25,6 @@
 									<th>#</th>
 									<th>Image</th>
 									<th>Name</th>
-									<th>Surname</th>
-									<th>Age</th>
-									<th>Number</th>
-									<th>Profession</th>
 									<th class="text-right">Actions</th>
 								</tr>
 							</thead>
@@ -39,20 +35,16 @@
 										<td>@(count++)</td>
 										<td>
 											<h2 class="table-avatar">
-												<a  class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="~/assets/img/employee/@item.Image"></a>
+												<a class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="~/assets/img/room/@item.Image"></a>
 											</h2>
 										</td>
 										<td>@item.Name</td>
-										<td>@item.Surname</td>
-										<td>@item.Age</td>
-										<td>@item.Phone</td>
-										<td>@item.Profession.Name</td>
 										<td class="text-right">
 											<div class="dropdown dropdown-action">
 												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v ellipse_color"></i></a>
 												<div class="dropdown-menu dropdown-menu-right">
 													<a class="dropdown-item" asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-pencil-alt m-r-5"></i> Edit</a>
-													<a class="dropdown-item" asp-action="Delete" asp-route-id="@item.Id"><i class="fas fa-trash-alt m-r-5"></i> Delete</a> 
+													<a class="dropdown-item" asp-action="Delete" asp-route-id="@item.Id"><i class="fas fa-trash-alt m-r-5"></i> Delete</a>
 												</div>
 											</div>
 										</td>
@@ -62,7 +54,7 @@
 						</table>
 						<nav aria-label="Page navigation example">
 							<ul class="pagination">
-								@if(Model.CurrentPage != 1 && Model.Items.Count > 0)
+								@if (Model.CurrentPage != 1 && Model.Items.Count > 0)
 								{
 									<li class="page-item">
 										<a class="page-link" asp-route-page="@(Model.CurrentPage-1)" aria-label="Previous">
@@ -75,7 +67,7 @@
 								{
 									<li class="page-item @(Model.CurrentPage==i?"active":"")"><a class="page-link" asp-route-page="@i">@i</a></li>
 								}
-								@if(Model.CurrentPage != Model.PageCount && Model.Items.Count > 0)
+								@if (Model.CurrentPage != Model.PageCount && Model.Items.Count > 0)
 								{
 									<li class="page-item">
 										<a class="page-link" asp-route-page="@(Model.CurrentPage+1)" aria-label="Next">
@@ -92,4 +84,3 @@
 		</div>
 	</div>
 </div>
-

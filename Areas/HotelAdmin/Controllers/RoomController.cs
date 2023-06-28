@@ -21,7 +21,7 @@ namespace Hotel.Areas.HotelAdmin.Controllers
         public async Task<IActionResult> Index()
 		{
 			ViewBag.RoomType = await _context.RoomTypes.ToListAsync();
-			var rooms = await _context.Rooms
+			var rooms = await _context.Rooms.Where(x=>x.IsDeleted == false)
 							  .Include(x => x.RoomType).Include(x => x.Bookings).Include(x => x.RoomImages)
 							  .ToListAsync();
             return View(rooms);
@@ -214,7 +214,34 @@ namespace Hotel.Areas.HotelAdmin.Controllers
 			}
 			_context.RoomImages.Remove(roomImage);
 			await _context.SaveChangesAsync();
-			return RedirectToAction("Edit", new { id = rid });
+			return RedirectToAction("Index","Room" ,new { id = rid});
 		}
+		public async Task<IActionResult> Delete(int id)
+		{
+			Room? exist = await _context.Rooms
+                              .Include(x => x.RoomType).Include(x => x.Bookings).Include(x => x.RoomImages)
+                              .FirstOrDefaultAsync(x => x.Id == id);
+			if(exist == null) 
+			{
+                ModelState.AddModelError("", "Room is null");
+                return View();
+            }
+            string path = Path.Combine(_environment.WebRootPath, "assets", "img", "room", exist.RoomImages.Where(x=>x.IsMain==true).FirstOrDefault().Image);
+            if (System.IO.File.Exists(path))
+            {
+                System.IO.File.Delete(path);
+            }
+			foreach (var roomImage in exist.RoomImages.Where(x => x.IsMain == false))
+			{
+				string pat = Path.Combine(_environment.WebRootPath, "assets", "img", "room", roomImage.Image);
+                if (System.IO.File.Exists(pat))
+                {
+                    System.IO.File.Delete(pat);
+                }
+            }
+			exist.IsDeleted = true;
+			await _context.SaveChangesAsync();
+			return RedirectToAction("Index");
+        }
 	}
 }

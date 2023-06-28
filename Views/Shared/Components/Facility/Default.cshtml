@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Facility>
+@foreach(var item in Model)
+{
+    <div class="col-md-4">
+        <div class="single-facility animate-box" data-animate-effect="fadeInUp">
+            @Html.Raw(item.Icon)
+            <h5>@item.Title</h5>
+            <p>@item.Description</p>
+            <div class="facility-shape"> <span class="flaticon-world"></span> </div>
+        </div>
+    </div>
+}

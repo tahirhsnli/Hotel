@@ -18,9 +18,21 @@ namespace Hotel.Areas.HotelAdmin.Controllers
             _env = env;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1,int take = 3)
         {
-            return View(await _context.Employees.Where(x=>x.IsDeleted==false).Include(x=>x.Profession).ToListAsync());
+            var employees = await _context.Employees.Where(x => x.IsDeleted == false).Skip((page - 1) * take).Take(take).Include(x => x.Profession).ToListAsync();
+            PaginateVM<Employee> paginate = new PaginateVM<Employee>()
+            {
+                Items = employees,
+                CurrentPage = page,
+                PageCount = PageCount(take)
+            };
+            return View(paginate);
+        }
+        private int PageCount(int take)
+        {
+            var count = _context.Employees.Count(x => x.IsDeleted == false);
+            return (int)Math.Ceiling((double)count / take);
         }
         public async Task<IActionResult> Create()
         {
@@ -108,6 +120,16 @@ namespace Hotel.Areas.HotelAdmin.Controllers
 			if (exist == null)
 			{
 				ModelState.AddModelError("", "Employee is null");
+				return View();
+			}
+			if (employeeVM.Age < 18)
+			{
+				ModelState.AddModelError("", "Employee is child");
+				return View();
+			}
+			if (employeeVM.Phone < 0 && employeeVM.Phone > 10000000000)
+			{
+				ModelState.AddModelError("", "Employee number wrong");
 				return View();
 			}
 			if (employeeVM.ImageFile != null)

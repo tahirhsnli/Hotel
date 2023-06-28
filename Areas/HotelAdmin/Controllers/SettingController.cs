@@ -20,6 +20,18 @@ namespace Hotel.Areas.HotelAdmin.Controllers
         {
             return View(await _context.Settings.ToListAsync());
         }
+        public async Task<IActionResult> Search(string search)
+        {
+			ViewData["CurrentFilter"] = search;
+			var settings = from s in _context.Settings select s;
+
+			if (!string.IsNullOrEmpty(search))
+			{
+				settings = settings.Where(x => x.Key.Contains(search));
+                settings = settings.Where(x => x.Value.Contains(search));
+			}
+			return View(settings);
+		}
         public async Task<IActionResult> Edit(int id)
         {
             Setting? exist = await _context.Settings.FirstOrDefaultAsync(x => x.Id == id);

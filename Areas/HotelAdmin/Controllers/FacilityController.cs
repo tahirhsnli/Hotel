@@ -80,5 +80,17 @@ namespace Hotel.Areas.HotelAdmin.Controllers
 			await _context.SaveChangesAsync();
 			return RedirectToAction("Index");
 		}
+        public async Task<IActionResult> Delete(int id)
+        {
+            Facility? exist = await _context.Facilities.Where(x => x.IsDeleted == false).FirstOrDefaultAsync(x => x.Id == id);
+            if(exist == null)
+            {
+                ModelState.AddModelError("", "Facility is null");
+                return View();
+            }
+            exist.IsDeleted = true;
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
     }
 }
