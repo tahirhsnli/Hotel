@@ -20,16 +20,20 @@ namespace Hotel.Areas.HotelAdmin.Controllers
         {
             return View(await _context.Settings.ToListAsync());
         }
-        public async Task<IActionResult> Search(string search)
+        public async Task<IActionResult> Search(string key,string value)
         {
-			ViewData["CurrentFilter"] = search;
+			ViewData["key"] = key;
+            ViewData["value"] = value;
 			var settings = from s in _context.Settings select s;
 
-			if (!string.IsNullOrEmpty(search))
+			if (!string.IsNullOrEmpty(key))
 			{
-				settings = settings.Where(x => x.Key.Contains(search));
-                settings = settings.Where(x => x.Value.Contains(search));
+				settings = settings.Where(x => x.Key.Contains(key));
 			}
+            if (!string.IsNullOrEmpty(value))
+            {
+                settings = settings.Where(x=>x.Value.Contains(value));
+            }
 			return View(settings);
 		}
         public async Task<IActionResult> Edit(int id)

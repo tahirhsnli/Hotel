@@ -14,8 +14,14 @@
 			</div>
 		<div class="top-nav-search">
 			<form asp-action="Search">
-				<label for="Search"></label>
-				<input type="text" class="form-control" name="Search" placeholder="Search here" value="@ViewData["CurrentFilter"]">
+				<div>
+						<label for="key"></label>
+						<input type="text" class="form-control" name="Key" placeholder="Search here" value="@ViewData["Key"]">
+				</div>
+				<div>
+						<label for="Value"></label>
+						<input type="text" class="form-control" name="value" placeholder="Search here" value="@ViewData["Value"]">
+				</div>
 				<input class="btn" type="submit" />
 			</form>
 		</div>

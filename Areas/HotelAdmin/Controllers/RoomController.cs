@@ -3,6 +3,8 @@ using Hotel.Extension;
 using Hotel.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Security.Cryptography;
 
@@ -25,6 +27,24 @@ namespace Hotel.Areas.HotelAdmin.Controllers
 							  .Include(x => x.RoomType).Include(x => x.Bookings).Include(x => x.RoomImages)
 							  .ToListAsync();
             return View(rooms);
+		}
+		public async Task<IActionResult> Filter(int roomnumber,int roomprice)
+		{
+			ViewData["Number"] = roomnumber;
+			ViewData["Price"] = roomprice;
+			var rooms = from s in _context.Rooms.Where(x => x.IsDeleted == false)
+							  .Include(x => x.RoomType).Include(x => x.Bookings).Include(x => x.RoomImages)
+						   select s;
+
+			if (roomnumber != default)
+			{
+				rooms = rooms.Where(x=>x.RoomNumber == roomnumber);
+			}
+			if (roomprice == 0)
+			{
+				rooms = rooms.Where(x => x.RoomPrice ==roomprice);
+			}
+			return View(rooms.ToList());
 		}
 		public async Task<IActionResult> Create()
 		{
@@ -61,6 +81,36 @@ namespace Hotel.Areas.HotelAdmin.Controllers
                 ModelState.AddModelError("", "Image is big");
                 return View();
             }
+			if(_context.Rooms.Where(x=>x.IsDeleted==false).Any(x=>x.RoomNumber == room.RoomNumber))
+			{
+				ModelState.AddModelError("RoomNumber", "RoomNumber is already exist");
+				return View();
+			}
+			if(room.RoomNumber < 0)
+			{
+				ModelState.AddModelError("RoomNumber", "The room number cannot be negative");
+				return View();
+			}
+			if (room.RoomPrice < 0)
+			{
+				ModelState.AddModelError("RoomNumber", "The room price cannot be negative");
+				return View();
+			}
+			if(room.ChildrenCapacity < 0 && room.ChildrenCapacity > 10)
+			{
+				ModelState.AddModelError("ChildrenCapacity", "Children Capacity is incorrect");
+				return View();
+			}
+			if(room.PeopleCapacity < 0 && room.PeopleCapacity > 10)
+			{
+				ModelState.AddModelError("PeopleCapacity", "People Capacity is incorrect");
+				return View();
+			}
+			if(room.Area < 0 && room.Area > 500)
+			{
+				ModelState.AddModelError("Area", "Area is incorrect");
+				return View();
+			}
 			room.RoomImages = new List<RoomImage>();
 			room.RoomImages.Add(new RoomImage
 			{
