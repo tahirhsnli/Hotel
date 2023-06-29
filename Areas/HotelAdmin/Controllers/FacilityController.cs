@@ -16,11 +16,25 @@ namespace Hotel.Areas.HotelAdmin.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1,int take = 3)
         {
-            return View(await _context.Facilities.Where(x=>x.IsDeleted==false).ToListAsync());
+            var facilities = await _context.Facilities.Where(x => x.IsDeleted == false).Skip((page - 1) * take).Take(take).ToListAsync();
+            PaginateVM<Facility> paginate = new PaginateVM<Facility>()
+            {
+                Items = facilities,
+                CurrentPage = page,
+                PageCount = PageCount(take)
+
+            };
+
+			return View(paginate);
         }
-        public IActionResult Create() 
+		private int PageCount(int take)
+		{
+			var count = _context.Facilities.Count(x => x.IsDeleted == false);
+			return (int)Math.Ceiling((double)count / take);
+		}
+		public IActionResult Create() 
         {
             return View();
         }

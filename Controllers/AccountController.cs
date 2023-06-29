@@ -114,5 +114,15 @@ namespace Hotel.Controllers
             }
             return View();
         }
+		public async Task<IActionResult> LogOut()
+		{
+			await _signInManager.SignOutAsync();
+			return RedirectToAction("Index", "Home");
+		}
+		public async Task<IActionResult> AddRole()
+		{
+			await _roleManager.CreateAsync(new IdentityRole { Name = "admin" });
+			return NoContent();
+		}
 	}
 }

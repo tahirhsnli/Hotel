@@ -24,17 +24,17 @@ namespace Hotel.Controllers
             decimal default_min_price = 0;
             decimal default_max_price = 100000000000;
             int room_type = 0;
+            DateTime Start = DateTime.Now;
+            DateTime End = new DateTime(2025,11,30);
             if(search.RoomTypeId != 0)
             {
                 room_type = search.RoomTypeId;
             }
-
             if (search.Minprice != 0)
             {
                 default_min_price = search.Minprice;
 
             }
-
             if (search.Maxprice != 0)
             {
                 default_max_price = search.Maxprice;
@@ -52,11 +52,6 @@ namespace Hotel.Controllers
             {
                 return View(allrooms);
             }
-
-            //if (search.RoomTypeId > 0 && search.Minprice > 0 && search.Maxprice > 0)
-            //{
-            //    return View(spesificRoomtypesPrices);
-            //}
             return View(spesificRoomtypesPrices);
         }
     }

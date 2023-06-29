@@ -1,6 +1,7 @@
 ﻿using Hotel.DAL;
 using Hotel.Extension;
 using Hotel.Models;
+using Hotel.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
@@ -20,19 +21,26 @@ namespace Hotel.Areas.HotelAdmin.Controllers
 			_context = context;
             _environment = environment;
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1,int take = 3)
 		{
 			ViewBag.RoomType = await _context.RoomTypes.ToListAsync();
-			var rooms = await _context.Rooms.Where(x=>x.IsDeleted == false)
+			var rooms = await _context.Rooms.Where(x=>x.IsDeleted == false).Skip((page - 1) * take).Take(take)
 							  .Include(x => x.RoomType).Include(x => x.Bookings).Include(x => x.RoomImages)
 							  .ToListAsync();
-            return View(rooms);
+			PaginateVM<Room> paginateVM = new PaginateVM<Room>()
+			{
+				Items = rooms,
+				CurrentPage = page,
+				PageCount = PageCount(take)
+			};
+            return View(paginateVM);
 		}
-		public async Task<IActionResult> Search()
-		{
-			return View();
-		}
-		public async Task<IActionResult> Create()
+        private int PageCount(int take)
+        {
+            var count = _context.Rooms.Where(x=>x.IsDeleted ==false).Count();
+            return (int)Math.Ceiling((double)count / take);
+        }
+        public async Task<IActionResult> Create()
 		{
 			ViewBag.RoomType = await _context.RoomTypes.ToListAsync();
 			return View();

@@ -134,6 +134,13 @@
 						<li class="active"> <a asp-controller="DashBoard" asp-action="Index" asp-area="HotelAdmin"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a> </li>
 						<li class="list-divider"></li>
 						<li class="submenu">
+							<a href="#"><i class="far fa-bell"></i> <span> RoomType </span> <span class="menu-arrow"></span></a>
+							<ul class="submenu_class" style="display: none;">
+								<li><a asp-controller="RoomType" asp-action="Index" asp-area="HotelAdmin">All RoomTypes</a></li>
+								<li><a asp-controller="RoomType" asp-action="Create" asp-area="HotelAdmin"> Add RoomTypes </a></li>
+							</ul>
+						</li>
+						<li class="submenu">
 							<a href="#"><i class="fas fa-key"></i> <span> Rooms </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
 								<li><a asp-controller="Room" asp-action="Index" asp-area="HotelAdmin">All Rooms </a></li>
