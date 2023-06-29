@@ -28,23 +28,9 @@ namespace Hotel.Areas.HotelAdmin.Controllers
 							  .ToListAsync();
             return View(rooms);
 		}
-		public async Task<IActionResult> Filter(int roomnumber,int roomprice)
+		public async Task<IActionResult> Search()
 		{
-			ViewData["Number"] = roomnumber;
-			ViewData["Price"] = roomprice;
-			var rooms = from s in _context.Rooms.Where(x => x.IsDeleted == false)
-							  .Include(x => x.RoomType).Include(x => x.Bookings).Include(x => x.RoomImages)
-						   select s;
-
-			if (roomnumber != default)
-			{
-				rooms = rooms.Where(x=>x.RoomNumber == roomnumber);
-			}
-			if (roomprice == 0)
-			{
-				rooms = rooms.Where(x => x.RoomPrice ==roomprice);
-			}
-			return View(rooms.ToList());
+			return View();
 		}
 		public async Task<IActionResult> Create()
 		{

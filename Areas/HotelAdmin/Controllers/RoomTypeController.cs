@@ -53,7 +53,7 @@ namespace Hotel.Areas.HotelAdmin.Controllers
 				ModelState.AddModelError("", "RoomType is null");
 				return View();
 			}
-			if (_context.RoomTypes.Any(p => p.Name.Trim().ToLower().Contains(roomTypeVM.Name.ToLower().Trim())))
+			if (_context.RoomTypes.Any(p => p.Name.Trim().ToLower() == roomTypeVM.Name.Trim().ToLower()))
 			{
 				ModelState.AddModelError("Name", "RoomType name already exist");
 				return View();
