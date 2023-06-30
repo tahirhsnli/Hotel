@@ -30,7 +30,19 @@ namespace Hotel.Controllers
             DateTime Start = DateTime.Today;
             DateTime End = DateTime.Today.AddDays(1);
             var startdate = search.StartDate;
-            var startdate2 = search.StartDate.ToShortDateString().ToString();
+            var rooms = await _context.Rooms
+                                 .Include(x => x.RoomType).Include(x => x.Bookings).Include(x => x.RoomImages)
+                                 .Where(x => x.IsDeleted == false).ToListAsync();
+            if (search.StartDate < DateTime.Today)
+            {
+                ModelState.AddModelError("StartDate", "Wrong StartDate");
+                return View(rooms);
+            }
+            if (search.EndDate < DateTime.Today.AddDays(1))
+            {
+                ModelState.AddModelError("StartDate", "Wrong EndDate");
+                return View(rooms);
+            }
             if (search.RoomTypeId != 0)
             {
                 room_type = search.RoomTypeId;
@@ -52,18 +64,13 @@ namespace Hotel.Controllers
             {
                 peopleCapacity = search.PeopleCapacity;
             }
-            var aa = _context.Rooms.Include(x => x.Bookings).Where(x => x.Bookings.FirstOrDefault().StartDate > search.StartDate);
-			var AvailebleRooms = (from u in _context.Rooms.Include(x=>x.Bookings)
-								  where (!u.Bookings.Any(b => b.EndDate >= search.StartDate && b.StartDate <= search.EndDate))
-								  select u).ToList();
 			var allrooms = await _context.Rooms
                                  .Include(x => x.RoomType).Include(x => x.Bookings).Include(x => x.RoomImages)
                                  .Where(x => x.IsDeleted == false && x.RoomPrice >= default_min_price &&
                                  x.RoomPrice <= default_max_price && x.ChildrenCapacity >= childrenCapacity &&
-                                 x.PeopleCapacity >= peopleCapacity && !(x.Bookings.FirstOrDefault().EndDate >= search.StartDate && 
-                                 x.Bookings.FirstOrDefault().StartDate <= search.EndDate)).ToListAsync();
-
-           var spesificRoomtypesPrices = await _context.Rooms
+                                 x.PeopleCapacity >= peopleCapacity && (!(x.Bookings.FirstOrDefault().EndDate >= search.StartDate &&
+                                 x.Bookings.FirstOrDefault().StartDate <= search.EndDate) || x.Bookings.FirstOrDefault().Id == null)).ToListAsync();
+            var spesificRoomtypesPrices = await _context.Rooms
                               .Include(x => x.RoomType).Include(x => x.Bookings).Include(x => x.RoomImages)
                               .Where(x => x.IsDeleted == false && x.RoomPrice >= default_min_price &&
 							  x.PeopleCapacity >= peopleCapacity && x.ChildrenCapacity >= childrenCapacity &&

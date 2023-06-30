@@ -2,12 +2,15 @@
 using Hotel.Extension;
 using Hotel.Models;
 using Hotel.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace Hotel.Areas.HotelAdmin.Controllers
 {
     [Area("HotelAdmin")]
+    [Authorize(Roles = "admin")]
     public class EmployeeController : Controller
     {
         private readonly AppDbContext _context;

@@ -19,6 +19,8 @@ builder.Services.Configure<IdentityOptions>(opt =>
 builder.Services.AddScoped<IEmailService, EmailManager>();
 var app = builder.Build();
 app.UseRouting();
+app.UseAuthentication();
+app.UseAuthorization();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseEndpoints(endpoints =>

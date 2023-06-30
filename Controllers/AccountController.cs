@@ -67,7 +67,7 @@ namespace Hotel.Controllers
             if (confirm.Succeeded)
             {
                 await _signInManager.SignInAsync(user, false);
-                return RedirectToAction("Index", "Home");
+				return RedirectToAction("Index", "Home");
             }
             return View();
         }
@@ -95,6 +95,7 @@ namespace Hotel.Controllers
                         ModelState.AddModelError("", "User is null");
                         return View();
                     }
+                    await _userManager.AddToRoleAsync(user, "admin");
                     return RedirectToAction("Index", "Home");
                 }
             }
@@ -109,7 +110,7 @@ namespace Hotel.Controllers
                         ModelState.AddModelError("", "User is null");
                         return View();
                     }
-                    return RedirectToAction("Index", "Home");
+					return RedirectToAction("Index", "Home");
                 }
             }
             return View();

@@ -2,13 +2,16 @@
 using Hotel.Extension;
 using Hotel.Models;
 using Hotel.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace Hotel.Areas.HotelAdmin.Controllers
 {
 	[Area("HotelAdmin")]
-	public class SliderController : Controller
+    [Authorize(Roles = "admin")]
+    public class SliderController : Controller
 	{
 		private readonly AppDbContext _context;
 		private readonly IWebHostEnvironment _env;

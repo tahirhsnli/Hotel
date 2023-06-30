@@ -52,33 +52,17 @@
                         <label>Start date</label>
                         <div class="input1_inner">
                             <input asp-for="StartDate" type="text" asp-format="{0:dd/MM/yyyy}" class="form-control input" placeholder="Check in">
+                            <span asp-validation-for="StartDate"></span>
                         </div>
                     </div>
                 </div>
                 <div class="col1 c3">
                     <div class="input1_wrapper">
                         <label>End Date</label>
-                        <div >
+                        <div class="input1_inner">
 @*                            <input asp-for="EndDate" type="text" class="form-control input datepicker" placeholder="Check out">*@
-                            <input asp-for="EndDate" type="text input" asp-format="{0:dd/MM/yyyy}"  placeholder="Check out"/>
-                        </div>
-                    </div>
-                </div>
-                <div class="col2 c2">
-                    <div class="input1_wrapper">
-                        Balcony
-                        <div >
-                            <input type="radio" name="balcon" value="Yes">Yes
-                            <input type="radio" name="balcon" value="No"/>No
-                        </div>
-                    </div>
-                </div>
-                <div class="col2 c2">
-                    <div class="input1_wrapper">
-                        Animal
-                        <div>
-                            <input type="radio" name="balcon" value="Yes">Yes
-                            <input type="radio" name="balcon" value="No" />No
+                            <input asp-for="EndDate" type="text input" asp-format="{0:dd/MM/yyyy}" class="form-control input" placeholder="Check out"/>
+                            <span asp-validation-for="EndDate"></span>
                         </div>
                     </div>
                 </div>
@@ -154,6 +138,7 @@
                         </div>
                     </div>
                 </div>*@
+                <div asp-validation-summary="ModelOnly"></div>
                 <div class="col3 c7">
                     <button type="submit" class="btn-form1-submit">Check Now</button>
                 </div>

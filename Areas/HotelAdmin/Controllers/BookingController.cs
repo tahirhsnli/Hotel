@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace Hotel.Areas.HotelAdmin.Controllers
 {
 	[Area("HotelAdmin")]
-	public class BookingController : Controller
+    [Authorize(Roles = "admin")]
+    public class BookingController : Controller
 	{
 		public IActionResult Index()
 		{
