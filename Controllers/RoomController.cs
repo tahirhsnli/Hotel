@@ -40,7 +40,7 @@ namespace Hotel.Controllers
             }
             if (search.EndDate < DateTime.Today.AddDays(1))
             {
-                ModelState.AddModelError("StartDate", "Wrong EndDate");
+                ModelState.AddModelError("EndDate", "Wrong EndDate");
                 return View(rooms);
             }
             if (search.RoomTypeId != 0)
