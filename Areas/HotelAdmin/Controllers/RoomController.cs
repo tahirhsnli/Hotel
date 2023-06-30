@@ -21,25 +21,14 @@ namespace Hotel.Areas.HotelAdmin.Controllers
 			_context = context;
             _environment = environment;
         }
-        public async Task<IActionResult> Index(int page = 1,int take = 3)
+        public async Task<IActionResult> Index()
 		{
 			ViewBag.RoomType = await _context.RoomTypes.ToListAsync();
-			var rooms = await _context.Rooms.Where(x=>x.IsDeleted == false).Skip((page - 1) * take).Take(take)
+			var rooms = await _context.Rooms.Where(x=>x.IsDeleted == false)
 							  .Include(x => x.RoomType).Include(x => x.Bookings).Include(x => x.RoomImages)
 							  .ToListAsync();
-			PaginateVM<Room> paginateVM = new PaginateVM<Room>()
-			{
-				Items = rooms,
-				CurrentPage = page,
-				PageCount = PageCount(take)
-			};
-            return View(paginateVM);
+			return View(rooms);
 		}
-        private int PageCount(int take)
-        {
-            var count = _context.Rooms.Where(x=>x.IsDeleted ==false).Count();
-            return (int)Math.Ceiling((double)count / take);
-        }
         public async Task<IActionResult> Create()
 		{
 			ViewBag.RoomType = await _context.RoomTypes.ToListAsync();

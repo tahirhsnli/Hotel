@@ -5,7 +5,7 @@
         <div class="section-title">Search Rooms</div>
         <div class="booking-inner clearfix">
             <form class="form1 clearfix" asp-action="Search" asp-controller="Room">
-                <div class="col2 c1">
+                <div class="col1 c1">
                     <div class="select1_wrapper">
                         <label>Adults</label>
                         <div class="select1_inner">
@@ -17,7 +17,7 @@
                 </div>
                 <div class="col1 c2">
                     <div class="input1_wrapper">
-                        <label>Check in</label>
+                        <label>MinPrice</label>
                         <div class="input1_inner">
                             <input asp-for="Minprice" type="text" class="form-control input text" placeholder="Min Price">
                         </div>
@@ -25,13 +25,64 @@
                 </div>
                 <div class="col1 c2">
                     <div class="select1_inner">
-                        <label>Check in</label>
+                        <label>Max Price</label>
                         <div class="input1_inner">
                             <input asp-for="Maxprice" type="text" class="form-control input text" placeholder="Max Price">
                         </div>
                     </div>
                 </div>
                 <div class="col1 c3">
+                    <div class="input1_wrapper">
+                        <label>Check in</label>
+                        <div class="input1_inner">
+                            <input asp-for="PeopleCapacity" type="text" class="form-control input text" placeholder="People Capacity">
+                        </div>
+                    </div>
+                </div>
+                <div class="col1 c3">
+                    <div class="select1_inner">
+                        <label>Check out</label>
+                        <div class="input1_inner">
+                            <input asp-for="ChildrenCapacity" type="text" class="form-control input text" placeholder="Children Capacity">
+                        </div>
+                    </div>
+                </div>
+                <div class="col1 c3">
+                    <div class="input1_wrapper">
+                        <label>Start date</label>
+                        <div class="input1_inner">
+                            <input asp-for="StartDate" type="text" asp-format="{0:dd/MM/yyyy}" class="form-control input" placeholder="Check in">
+                        </div>
+                    </div>
+                </div>
+                <div class="col1 c3">
+                    <div class="input1_wrapper">
+                        <label>End Date</label>
+                        <div >
+@*                            <input asp-for="EndDate" type="text" class="form-control input datepicker" placeholder="Check out">*@
+                            <input asp-for="EndDate" type="text input" asp-format="{0:dd/MM/yyyy}"  placeholder="Check out"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col2 c2">
+                    <div class="input1_wrapper">
+                        Balcony
+                        <div >
+                            <input type="radio" name="balcon" value="Yes">Yes
+                            <input type="radio" name="balcon" value="No"/>No
+                        </div>
+                    </div>
+                </div>
+                <div class="col2 c2">
+                    <div class="input1_wrapper">
+                        Animal
+                        <div>
+                            <input type="radio" name="balcon" value="Yes">Yes
+                            <input type="radio" name="balcon" value="No" />No
+                        </div>
+                    </div>
+                </div>
+@*                <div class="col1 c3">
                     <div class="input1_wrapper">
                         <label>Check in</label>
                         <div class="input1_inner">
@@ -46,7 +97,7 @@
                             <input asp-for="Enddate" type="text" class="form-control input datepicker" placeholder="Check out">
                         </div>
                     </div>
-                </div>
+                </div>*@
 @*                <div class="col1 c2">
                     <div class="input1_wrapper">
                         <label>Check in</label>

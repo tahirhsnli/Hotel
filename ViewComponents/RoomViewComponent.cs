@@ -1,4 +1,6 @@
 ﻿using Hotel.DAL;
+using Hotel.Models;
+using Hotel.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,5 +23,5 @@ namespace Hotel.ViewComponents
                               .ToListAsync();
             return View(rooms);
         }
-    }
+	}
 }

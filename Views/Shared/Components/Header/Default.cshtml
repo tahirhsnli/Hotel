@@ -30,10 +30,7 @@
                 <li class="nav-item dropdown">
                     <span class="nav-link active"> Home <i class="ti-angle-down"></i></span>
                     <ul class="dropdown-menu last">
-                        <li class="dropdown-item active"><a href="index.html">Home Layout 1</a></li>
-                        <li class="dropdown-item"><a href="index2.html">Home Layout 2</a></li>
-                        <li class="dropdown-item"><a href="index3.html">Home Layout 3</a></li>
-                        <li class="dropdown-item"><a href="index4.html">Home Layout 4</a></li>
+                        <li class="dropdown-item active"><a asp-controller="Home" asp-action="Index">Home</a></li>
                         <li class="dropdown-item"><a href="index5.html">Video 1</a></li>
                         <li class="dropdown-item"><a href="index6.html">Video 2</a></li>
                         <li class="dropdown-item"><a href="index7.html">Video 3</a></li>
@@ -47,18 +44,16 @@
                         <li class="dropdown-item"><a href="index15.html">Grid Background 2</a></li>
                     </ul>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" asp-controller="About" asp-action="Index">About</a></li>
                 <li class="nav-item dropdown">
                     <span class="nav-link"> Rooms & Suites <i class="ti-angle-down"></i></span>
                     <ul class="dropdown-menu last">
-                        <li class="dropdown-item"><a href="rooms.html">Rooms 1</a></li>
-                        <li class="dropdown-item"><a href="rooms2.html">Rooms 2</a></li>
-                        <li class="dropdown-item"><a href="rooms3.html">Rooms 3</a></li>
+                        <li class="dropdown-item"><a asp-controller="Room" asp-action="Index">Rooms </a></li>
                         <li class="dropdown-item"><a href="room-details.html">Room Details</a></li>
                     </ul>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="restaurant.html">Restaurant</a></li>
-                <li class="nav-item"><a class="nav-link" href="spa-wellness.html">Spa</a></li>
+                <li class="nav-item"><a class="nav-link" asp-controller="Restaurant" asp-action="Index">Restaurant</a></li>
+                <li class="nav-item"><a class="nav-link" asp-controller="Spa" asp-action="Index">Spa</a></li>
                 <li class="nav-item dropdown">
                     <span class="nav-link"> Pages <i class="ti-angle-down"></i></span>
                     <ul class="dropdown-menu last">
