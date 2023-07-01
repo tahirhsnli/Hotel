@@ -14,12 +14,11 @@
                     <div class="footer-column footer-explore clearfix">
                         <h3 class="footer-title">Explore</h3>
                         <ul class="footer-explore-list list-unstyled">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="rooms.html">Rooms & Suites</a></li>
-                            <li><a href="restaurant.html">Restaurant</a></li>
-                            <li><a href="spa-wellness.html">Spa & Wellness</a></li>
-                            <li><a href="about.html">About Hotel</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                            <li><a asp-controller="Room" asp-action="Index">Rooms</a></li>
+                            <li><a asp-controller="Restaurant" asp-action="Index">Restaurant</a></li>
+                            <li><a asp-controller="Spa" asp-action="Index">Spa & Wellness</a></li>
+                            <li><a asp-controller="About" asp-action="Index">About Hotel</a></li>
                         </ul>
                     </div>
                 </div>
@@ -32,9 +31,9 @@
                             <p class="footer-contact-mail">@Model["gmail"]</p>
                         </div>
                         <div class="footer-about-social-list">
-                            <a href="#"><i class="ti-instagram"></i></a>
+                            <a href=""><i class="ti-instagram"></i></a>
                             <a href="#"><i class="ti-twitter"></i></a>
-                            <a href="#"><i class="ti-youtube"></i></a>
+                            <a href="https://www.youtube.com/CharmQuell"><i class="ti-youtube"></i></a>
                             <a href="#"><i class="ti-facebook"></i></a>
                             <a href="#"><i class="ti-pinterest"></i></a>
                         </div>
