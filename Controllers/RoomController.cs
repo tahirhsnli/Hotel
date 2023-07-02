@@ -18,9 +18,13 @@ namespace Hotel.Controllers
 		}
 		public IActionResult Index()
         {
-			return View();
-        }  
-
+            return View();
+        }
+        //private int PageCount(int take)
+        //{
+        //    var count = _context.Rooms.Count(x => x.IsDeleted == false);
+        //    return (int)Math.Ceiling((double)count / take);
+        //}
         public async Task<IActionResult> Search(SearchVM search)
         {
             decimal default_min_price = 0;

@@ -9,7 +9,6 @@
     <meta charset="UTF-8">
     <title>Room Checkout</title>
     <link rel="stylesheet" href="~/checkout/style.css">
-
 </head>
 <body>
     <script src="https://kit.fontawesome.com/bb515311f9.js" crossorigin="anonymous"></script>
@@ -55,16 +54,16 @@
             </div>
             <div class="payment-info">
                 <h3 class="payment-heading">Hotel Information</h3>
-                <form asp-action="Checkout" class="form-box" enctype="text/plain" target="_blank">
+                <form method="post" asp-action="Checkout" class="form-box" enctype="text/plain" target="_blank">
                     <div>
                         
                         <label asp-for="StartDate">StartDate</label>
-                        <input asp-for="StartDate" value="@Model.StartDate" disabled asp-format="{0:MM /dd/yyyy}" placeholder="Start Date" required type="text" />
+                        <input asp-for="StartDate" value="@Model.StartDate" disabled asp-format="{0: dd/MM/yyyy}" placeholder="Start Date" required type="text" />
                         <span asp-validation-for="StartDate"></span>
                     </div>
                     <div>
                         <label asp-for="EndDate">EndDate</label>
-                        <input asp-for="EndDate" value="@Model.EndDate.ToString("dd/MM/yyyy")" disabled asp-format="{0:MM /dd/yyyy}" class="form-control input" placeholder="End Date" required type="text" />
+                        <input asp-for="EndDate" value="@Model.EndDate" disabled asp-format="{0:dd/MM/yyyy}" class="form-control input" placeholder="End Date" required type="text" />
                         <span asp-validation-for="EndDate"></span>
                     </div>
                     <div>

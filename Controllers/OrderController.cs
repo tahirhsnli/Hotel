@@ -21,6 +21,12 @@ namespace Hotel.Controllers
         }
         public IActionResult Checkout(DateTime start, DateTime end)
         {
+            if(start > DateTime.Today && end > DateTime.Today.AddDays(1))
+            {
+                ViewBag.Enddate = end;
+                ViewBag.Startdate = start;
+            }
+            
             OrderVM orderVM = new OrderVM()
             {
                 StartDate = start,
@@ -33,11 +39,12 @@ namespace Hotel.Controllers
         {
             AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
             var rooms = _context.Rooms.FirstOrDefault(r => r.Id == id);
-            DateTime? date = ViewBag.StartDate;
             Bookings bookings = new Bookings()
             {
                 Status = false,
                 AppUser = user,
+                StartDate = ViewBag.Startdate,
+                EndDate = ViewBag.Enddate,
                 ChildrenCount = orderVM.ChildrenCount,
                 PeopleCount = orderVM.PeopleCount,
                 RoomId = id
