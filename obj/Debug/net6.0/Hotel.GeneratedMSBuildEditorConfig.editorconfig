@@ -24,6 +24,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSG90ZWxBZG1pblxWaWV3c1xBYm91dFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/user/Desktop/Hotell/Hotel/Areas/HotelAdmin/Views/Booking/BookingEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSG90ZWxBZG1pblxWaWV3c1xCb29raW5nXEJvb2tpbmdFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/user/Desktop/Hotell/Hotel/Areas/HotelAdmin/Views/Booking/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSG90ZWxBZG1pblxWaWV3c1xCb29raW5nXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -34,6 +38,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/user/Desktop/Hotell/Hotel/Areas/HotelAdmin/Views/Booking/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSG90ZWxBZG1pblxWaWV3c1xCb29raW5nXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/Hotell/Hotel/Areas/HotelAdmin/Views/Booking/PendingBooking.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSG90ZWxBZG1pblxWaWV3c1xCb29raW5nXFBlbmRpbmdCb29raW5nLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/user/Desktop/Hotell/Hotel/Areas/HotelAdmin/Views/Customer/Create.cshtml]
@@ -170,6 +178,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/user/Desktop/Hotell/Hotel/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/Hotell/Hotel/Views/Order/Checkout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcQ2hlY2tvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/user/Desktop/Hotell/Hotel/Views/Room/Index.cshtml]

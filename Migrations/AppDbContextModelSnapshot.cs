@@ -124,6 +124,9 @@ namespace Hotel.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<int>("ChildrenCount")
                         .HasColumnType("int");
 
@@ -145,7 +148,15 @@ namespace Hotel.Migrations
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool?>("Status")
+                        .HasColumnType("bit");
+
+                    b.Property<decimal>("TotalPrice")
+                        .HasColumnType("decimal(18,2)");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
 
                     b.HasIndex("RoomId");
 
@@ -514,11 +525,17 @@ namespace Hotel.Migrations
 
             modelBuilder.Entity("Hotel.Models.Bookings", b =>
                 {
+                    b.HasOne("Hotel.Models.AppUser", "AppUser")
+                        .WithMany("Bookings")
+                        .HasForeignKey("AppUserId");
+
                     b.HasOne("Hotel.Models.Room", "Room")
                         .WithMany("Bookings")
                         .HasForeignKey("RoomId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("AppUser");
 
                     b.Navigation("Room");
                 });
@@ -605,6 +622,11 @@ namespace Hotel.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Hotel.Models.AppUser", b =>
+                {
+                    b.Navigation("Bookings");
                 });
 
             modelBuilder.Entity("Hotel.Models.Profession", b =>

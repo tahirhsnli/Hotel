@@ -1,6 +1,8 @@
 ﻿
 @{
     ViewData["Title"] = "Search";
+    var Start = ViewBag.StartDate;
+    var End = ViewBag.EndDate;
 }
 @model List<Room>
 <!-- Booking Search -->
@@ -19,7 +21,7 @@
                     <div class="item">
                         <div class="position-re o-hidden"> <img src="~/assets/img/room/@item.RoomImages.Where(x=>x.IsMain==true).FirstOrDefault().Image" alt=""> </div> <span class="category"><a href="rooms2.html">Book</a></span>
                         <div class="con">
-                            <h5><a href="room-details.html">@item.RoomType.Name</a></h5>
+                            <h5><a asp-controller="Order" asp-action="Checkout" asp-route-id="@item.Id" asp-route-start="@Start" asp-route-end="@End">@item.RoomType.Name</a></h5>
                             <h5>@item.RoomPrice</h5>
                             <div class="line"></div>
                         </div>

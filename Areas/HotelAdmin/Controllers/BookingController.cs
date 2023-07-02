@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Hotel.DAL;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Data;
 
 namespace Hotel.Areas.HotelAdmin.Controllers
@@ -8,17 +10,24 @@ namespace Hotel.Areas.HotelAdmin.Controllers
     [Authorize(Roles = "admin")]
     public class BookingController : Controller
 	{
-		public IActionResult Index()
+		private readonly AppDbContext _context;
+
+        public BookingController(AppDbContext context)
+        {
+            _context = context;
+        }
+
+        public IActionResult Index()
 		{
 			return View();
 		}
-		public IActionResult Create()
+		public async Task<IActionResult> PendingBooking()
 		{
-			return View();
+			return View(await _context.Bookings.Include(x=>x.Room).Where(b=>b.Status == null).ToListAsync());
 		}
-		public IActionResult Edit()
+		public async Task<IActionResult> BookingEdit(int id)
 		{
-			return View();
+			return View(await _context.Bookings.FirstOrDefaultAsync(x=>x.Id == id));
 		}
 	}
 }
