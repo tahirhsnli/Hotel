@@ -1,4 +1,6 @@
 ﻿using Hotel.DAL;
+using Hotel.Models;
+using Hotel.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -28,6 +30,32 @@ namespace Hotel.Areas.HotelAdmin.Controllers
 		public async Task<IActionResult> BookingEdit(int id)
 		{
 			return View(await _context.Bookings.FirstOrDefaultAsync(x=>x.Id == id));
+		}
+		public async Task<IActionResult> Accept(int id)
+		{
+			if (!ModelState.IsValid) { return View(); }
+			Bookings? exist = await _context.Bookings.FirstOrDefaultAsync(x => x.Id == id);
+			if (exist == null)
+			{
+				ModelState.AddModelError("", "Error");
+				return View();
+			}
+			exist.Status = true;
+			await _context.SaveChangesAsync();
+			return RedirectToAction("PendingBooking");
+		}
+		public async Task<IActionResult> Reject(int id)
+		{
+			if (!ModelState.IsValid) { return View(); }
+			Bookings? exist = await _context.Bookings.FirstOrDefaultAsync(x => x.Id == id);
+			if (exist == null)
+			{
+				ModelState.AddModelError("", "Error");
+				return View();
+			}
+			exist.Status = false;
+			await _context.SaveChangesAsync();
+			return RedirectToAction("PendingBooking");
 		}
 	}
 }

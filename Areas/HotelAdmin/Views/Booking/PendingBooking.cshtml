@@ -26,6 +26,7 @@
 									<th>#</th>
 									<th>Room Number</th>
 									<th>RoomPrice</th>
+									<th>Status</th>
 									<th class="text-right">Actions</th>
 								</tr>
 							</thead>
@@ -36,6 +37,26 @@
 										<td>@(count++)1</td>
 										<td>@item.Room.RoomNumber</td>
 										<td>@item.Room.RoomPrice</td>
+										<td>
+											@if (item.Status == null)
+											{
+												<p>Pending</p>
+											}
+											else if (item.Status == true)
+											{
+												<p>Accept</p>
+											}
+											else
+											{
+												<p>Reject</p>
+											}
+										</td>
+										<td>
+											<a asp-controller="Booking" asp-action="Accept" asp-route-id="@item.Id"><button type="submit" class="btn btn-primary">Accept</button></a>
+										</td>
+										<td>
+											<a asp-controller="Booking" asp-action="Reject" asp-route-id="@item.Id"><button type="submit" class="btn btn-danger">Reject</button></a>
+										</td>
 									</tr>
 								}
 							</tbody>

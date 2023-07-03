@@ -20,5 +20,6 @@ namespace Hotel.DAL
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<Facility> Facilities { get; set; }
         public DbSet<About> Abouts { get; set; }
+        public DbSet<RestaurantSlider> RestaurantSliders { get; set;}
     }
 }

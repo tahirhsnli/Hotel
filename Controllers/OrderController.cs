@@ -41,10 +41,8 @@ namespace Hotel.Controllers
             var rooms = _context.Rooms.FirstOrDefault(r => r.Id == id);
             Bookings bookings = new Bookings()
             {
-                Status = false,
+                Status = null,
                 AppUser = user,
-                StartDate = ViewBag.Startdate,
-                EndDate = ViewBag.Enddate,
                 ChildrenCount = orderVM.ChildrenCount,
                 PeopleCount = orderVM.PeopleCount,
                 RoomId = id

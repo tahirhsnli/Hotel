@@ -104,6 +104,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSG90ZWxBZG1pblxWaWV3c1xQcm9mZXNzaW9uXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/user/Desktop/Hotell/Hotel/Areas/HotelAdmin/Views/RestaurantSlider/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSG90ZWxBZG1pblxWaWV3c1xSZXN0YXVyYW50U2xpZGVyXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/Hotell/Hotel/Areas/HotelAdmin/Views/RestaurantSlider/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSG90ZWxBZG1pblxWaWV3c1xSZXN0YXVyYW50U2xpZGVyXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/Hotell/Hotel/Areas/HotelAdmin/Views/RestaurantSlider/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSG90ZWxBZG1pblxWaWV3c1xSZXN0YXVyYW50U2xpZGVyXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/user/Desktop/Hotell/Hotel/Areas/HotelAdmin/Views/RoomType/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSG90ZWxBZG1pblxWaWV3c1xSb29tVHlwZVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
