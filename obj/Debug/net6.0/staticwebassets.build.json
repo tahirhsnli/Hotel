@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "DWbZ8+XOXcoJGBtgmUPBEua8Tjc07nCcMUTwmgfH4ow=",
+  "Hash": "Ydd4/EqHBbVL/nu/SvPFDVbAu7ds+J7LkIxEirKVDPg=",
   "Source": "Hotel",
   "BasePath": "_content/Hotel",
   "Mode": "Default",
@@ -2431,6 +2431,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\pricing\\4.jpg"
     },
     {
+      "Identity": "C:\\Users\\user\\Desktop\\Hotell\\Hotel\\wwwroot\\assets\\img\\restaurant\\04fa344a-126a-41ce-8d15-4667e824fbe6_2.jpg",
+      "SourceId": "Hotel",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\Hotell\\Hotel\\wwwroot\\",
+      "BasePath": "_content/Hotel",
+      "RelativePath": "assets/img/restaurant/04fa344a-126a-41ce-8d15-4667e824fbe6_2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\restaurant\\04fa344a-126a-41ce-8d15-4667e824fbe6_2.jpg"
+    },
+    {
       "Identity": "C:\\Users\\user\\Desktop\\Hotell\\Hotel\\wwwroot\\assets\\img\\restaurant\\1.jpg",
       "SourceId": "Hotel",
       "SourceType": "Discovered",
@@ -2465,6 +2482,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\restaurant\\2.jpg"
     },
     {
+      "Identity": "C:\\Users\\user\\Desktop\\Hotell\\Hotel\\wwwroot\\assets\\img\\restaurant\\247815fd-2576-44a5-9ce8-d7ce6c0460f4_3.jpg",
+      "SourceId": "Hotel",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\Hotell\\Hotel\\wwwroot\\",
+      "BasePath": "_content/Hotel",
+      "RelativePath": "assets/img/restaurant/247815fd-2576-44a5-9ce8-d7ce6c0460f4_3.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\restaurant\\247815fd-2576-44a5-9ce8-d7ce6c0460f4_3.jpg"
+    },
+    {
       "Identity": "C:\\Users\\user\\Desktop\\Hotell\\Hotel\\wwwroot\\assets\\img\\restaurant\\3.jpg",
       "SourceId": "Hotel",
       "SourceType": "Discovered",
@@ -2480,6 +2514,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\restaurant\\3.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\user\\Desktop\\Hotell\\Hotel\\wwwroot\\assets\\img\\restaurant\\b847ce6e-e4d2-4055-9e99-575faec9eb32_1.jpg",
+      "SourceId": "Hotel",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\Hotell\\Hotel\\wwwroot\\",
+      "BasePath": "_content/Hotel",
+      "RelativePath": "assets/img/restaurant/b847ce6e-e4d2-4055-9e99-575faec9eb32_1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\restaurant\\b847ce6e-e4d2-4055-9e99-575faec9eb32_1.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\user\\Desktop\\Hotell\\Hotel\\wwwroot\\assets\\img\\restaurant\\e7356afb-4e97-4a2a-8371-d553b0594089_2.jpg",
+      "SourceId": "Hotel",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\Hotell\\Hotel\\wwwroot\\",
+      "BasePath": "_content/Hotel",
+      "RelativePath": "assets/img/restaurant/e7356afb-4e97-4a2a-8371-d553b0594089_2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\restaurant\\e7356afb-4e97-4a2a-8371-d553b0594089_2.jpg"
     },
     {
       "Identity": "C:\\Users\\user\\Desktop\\Hotell\\Hotel\\wwwroot\\assets\\img\\room\\05afac95-5458-4682-9c6d-3cc1981ec1af_face7.jpg",

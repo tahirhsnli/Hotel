@@ -2,11 +2,15 @@
 using Hotel.Extension;
 using Hotel.Models;
 using Hotel.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace Hotel.Areas.HotelAdmin.Controllers
 {
+	[Area("HotelAdmin")]
+	[Authorize(Roles = "admin")]
 	public class RestaurantSliderController : Controller
 	{
 		private readonly AppDbContext _context;
@@ -25,6 +29,8 @@ namespace Hotel.Areas.HotelAdmin.Controllers
 		{
 			return View();
 		}
+		[HttpPost]
+		[ValidateAntiForgeryToken]
 		public async Task<IActionResult> Create(RestaurantSliderVM sliderVM) 
 		{
 			if (!ModelState.IsValid)
@@ -42,7 +48,7 @@ namespace Hotel.Areas.HotelAdmin.Controllers
 				ModelState.AddModelError("ImageFile", "Image is null");
 				return View();
 			}
-			if (sliderVM.ImageFile.CheckSize(200))
+			if (sliderVM.ImageFile.CheckSize(500))
 			{
 				ModelState.AddModelError("ImageFile", "Image size big");
 				return View();
@@ -53,7 +59,7 @@ namespace Hotel.Areas.HotelAdmin.Controllers
 				return View();
 			}
 			RestaurantSlider slider= new RestaurantSlider();
-			slider.Image = await sliderVM.ImageFile.SaveFile(_env.WebRootPath, "slider");
+			slider.Image = await sliderVM.ImageFile.SaveFile(_env.WebRootPath, "restaurant");
 			await _context.RestaurantSliders.AddAsync(slider);
 			await _context.SaveChangesAsync();
 			return RedirectToAction("Index");
@@ -80,7 +86,7 @@ namespace Hotel.Areas.HotelAdmin.Controllers
 			}
 			if (sliderVM.ImageFile != null)
 			{
-				if (sliderVM.ImageFile.CheckSize(200))
+				if (sliderVM.ImageFile.CheckSize(500))
 				{
 					ModelState.AddModelError("ImageFile", "Image is big");
 					return View();
@@ -90,12 +96,12 @@ namespace Hotel.Areas.HotelAdmin.Controllers
 					ModelState.AddModelError("ImageFile", "Image is wrong type");
 					return View();
 				}
-				string path = Path.Combine(_env.WebRootPath, "assets", "img", "slider", exist.Image);
+				string path = Path.Combine(_env.WebRootPath, "assets", "img", "restaurant", exist.Image);
 				if (System.IO.File.Exists(path))
 				{
 					System.IO.File.Delete(path);
 				}
-				exist.Image = await sliderVM.ImageFile.SaveFile(_env.WebRootPath, "slider");
+				exist.Image = await sliderVM.ImageFile.SaveFile(_env.WebRootPath, "restaurant");
 			}
 			await _context.SaveChangesAsync();
 			return RedirectToAction("Index");
@@ -108,11 +114,7 @@ namespace Hotel.Areas.HotelAdmin.Controllers
 				ModelState.AddModelError("", "Slider is null");
 				return View();
 			}
-			string path = Path.Combine(_env.WebRootPath, "assets", "img", "slider", exist.Image);
-			if (System.IO.File.Exists(path))
-			{
-				System.IO.File.Delete(path);
-			}
+			_context.RestaurantSliders.Remove(exist);
 			await _context.SaveChangesAsync();
 			return RedirectToAction("Index");
 		}
