@@ -109,7 +109,6 @@ namespace Hotel.Controllers
                         ModelState.AddModelError("", "User is null");
                         return View();
                     }
-                    await _userManager.AddToRoleAsync(user,"admin");
                     return RedirectToAction("Index", "Home");
                 }
             }
