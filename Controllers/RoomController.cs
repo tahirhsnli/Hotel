@@ -16,12 +16,12 @@ namespace Hotel.Controllers
         {
             _context = context;
 		}
-		public async Task<IActionResult> Index(int page = 1, int take = 3)
+		public async Task<IActionResult> Index(int page = 1, int take = 6)
         {
             ViewBag.RoomType = await _context.RoomTypes.ToListAsync();
             var rooms = await _context.Rooms.Where(x => x.IsDeleted == false).Skip((page - 1) * take).Take(take)
                               .Include(x => x.RoomType).Include(x => x.Bookings).Include(x => x.RoomImages)
-                              .ToListAsync();
+                              .OrderByDescending(x => x.Id).ToListAsync();
             PaginateVM<Room> paginate = new PaginateVM<Room>()
             {
                 Items = rooms,
@@ -122,18 +122,24 @@ namespace Hotel.Controllers
             var allrooms = await _context.Rooms.Include(x => x.RoomType).Include(x => x.Bookings).Include(x => x.RoomImages).
                 Where(x => x.IsDeleted == false && x.RoomPrice >= default_min_price &&
                                  x.RoomPrice <= default_max_price && x.ChildrenCapacity >= childrenCapacity && x.PeopleCapacity >= peopleCapacity &&
-                                 x.Bookings.All(m=>!(m.EndDate >= search.StartDate && m.StartDate <= search.EndDate)) || x.Bookings == null).ToListAsync();
-            
+                                 x.Bookings.All(m=>!(m.EndDate >= search.StartDate && m.StartDate <= search.EndDate)) || x.Bookings == null).OrderByDescending(x => x.Id).ToListAsync();
             var spesificRoomtypesPrices = await _context.Rooms
                               .Include(x => x.RoomType).Include(x => x.Bookings).Include(x => x.RoomImages)
                               .Where(x => x.IsDeleted == false && x.RoomPrice >= default_min_price &&
 							  x.PeopleCapacity >= peopleCapacity && x.ChildrenCapacity >= childrenCapacity &&
-							  x.RoomPrice <= default_max_price && x.RoomTypeId == room_type && x.Bookings.All(m => !(m.EndDate >= search.StartDate && m.StartDate <= search.EndDate)) || x.Bookings == null).ToListAsync();
+							  x.RoomPrice <= default_max_price && x.RoomTypeId == room_type && x.Bookings.All(m => !(m.EndDate >= search.StartDate && m.StartDate <= search.EndDate)) || x.Bookings == null).OrderByDescending(x => x.Id).ToListAsync();
             if(room_type == null)
             {
                 return View(allrooms);
             }
             return View(spesificRoomtypesPrices);
+        }
+        public async Task<IActionResult> Details(int id)
+        {
+            var rooms = await _context.Rooms
+                              .Include(x => x.RoomType).Include(x => x.Bookings).Include(x => x.RoomImages)
+                              .FirstOrDefaultAsync(x => x.Id == id);
+            return View(rooms);
         }
     }
 }

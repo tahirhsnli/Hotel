@@ -23,7 +23,7 @@ namespace Hotel.Areas.HotelAdmin.Controllers
 
 		public async Task<IActionResult> Index()
 		{
-			return View(await _context.RestaurantSliders.ToListAsync());
+			return View(await _context.RestaurantSliders.OrderByDescending(x => x.Id).ToListAsync());
 		}
 		public IActionResult Create()
 		{

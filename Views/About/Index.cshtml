@@ -2,37 +2,44 @@
 @{
     ViewData["Title"] = "Index";
 }
+@model AboutViewModel
 <!-- Header Banner -->
     @await Component.InvokeAsync("AboutUs")
 <!-- About -->
 @await Component.InvokeAsync("About")
 <!-- Facilties -->
-<section class="facilties section-padding">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="section-subtitle">Our Services</div>
-                <div class="section-title">Hotel Facilities</div>
+@if (Model.Facilities.Any())
+{
+    <section class="facilties section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-subtitle">Our Services</div>
+                    <div class="section-title">Hotel Facilities</div>
+                </div>
+            </div>
+            <div class="row">
+                @await Component.InvokeAsync("Facility")
             </div>
         </div>
-        <div class="row">
-            @await Component.InvokeAsync("Facility")
-        </div>
-    </div>
-</section>
+    </section>
+}
 <!-- Team -->
-<section class="team section-padding bg-cream">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="section-subtitle">Professionals</div>
-                <div class="section-title">Meet The Team</div>
+@if(Model.Employees.Any())
+{
+    <section class="team section-padding bg-cream">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-subtitle">Professionals</div>
+                    <div class="section-title">Meet The Team</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 owl-carousel owl-theme">
+                    @await Component.InvokeAsync("Team")
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12 owl-carousel owl-theme">
-                @await Component.InvokeAsync("Team")
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
+}

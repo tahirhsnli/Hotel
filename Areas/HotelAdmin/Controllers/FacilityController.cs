@@ -21,7 +21,7 @@ namespace Hotel.Areas.HotelAdmin.Controllers
 
         public async Task<IActionResult> Index(int page = 1,int take = 3)
         {
-            var facilities = await _context.Facilities.Where(x => x.IsDeleted == false).Skip((page - 1) * take).Take(take).ToListAsync();
+            var facilities = await _context.Facilities.Where(x => x.IsDeleted == false).Skip((page - 1) * take).Take(take).OrderByDescending(x => x.Id).ToListAsync();
             PaginateVM<Facility> paginate = new PaginateVM<Facility>()
             {
                 Items = facilities,

@@ -15,7 +15,7 @@ namespace Hotel.ViewComponents
 
 		public async Task<IViewComponentResult> InvokeAsync()
 		{
-			return View(await _context.Facilities.Where(x=>x.IsDeleted==false).ToListAsync());
+			return View(await _context.Facilities.Where(x=>x.IsDeleted==false).OrderByDescending(x => x.Id).ToListAsync());
 		}
 	}
 }

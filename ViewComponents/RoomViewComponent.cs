@@ -20,7 +20,7 @@ namespace Hotel.ViewComponents
             ViewBag.RoomType = await _context.RoomTypes.ToListAsync();
             var rooms = await _context.Rooms.Where(x => x.IsDeleted == false).Skip((page - 1)*take).Take(take)
                               .Include(x => x.RoomType).Include(x => x.Bookings).Include(x => x.RoomImages)
-                              .ToListAsync();
+                              .OrderByDescending(x => x.Id).ToListAsync();
             PaginateVM<Room> paginate = new PaginateVM<Room>()
             {
                 Items = rooms,

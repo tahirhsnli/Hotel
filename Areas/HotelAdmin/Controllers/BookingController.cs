@@ -3,6 +3,7 @@ using Hotel.Models;
 using Hotel.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
 
@@ -19,13 +20,38 @@ namespace Hotel.Areas.HotelAdmin.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index(int page = 1,int take = 10)
 		{
-			return View();
+			var bookings = await _context.Bookings.Include(x => x.Room).Include(x => x.AppUser).Where(b => b.Status == true)
+				.Skip((page - 1) * take).Take(take).OrderByDescending(x => x.Id).ToListAsync();
+			PaginateVM<Bookings> paginate = new PaginateVM<Bookings>()
+			{
+				Items = bookings,
+				CurrentPage = page,
+				PageCount =PageCount1(take)
+			};
+			return View(paginate);
 		}
-		public async Task<IActionResult> PendingBooking()
+		private int PageCount1(int take)
 		{
-			return View(await _context.Bookings.Include(x=>x.Room).Where(b=>b.Status == null).ToListAsync());
+			var count = _context.Bookings.Count(x => x.Status == true);
+			return (int)Math.Ceiling((double)count / take);
+		}
+		public async Task<IActionResult> PendingBooking(int page = 1,int take = 10)
+		{
+			var bookings = await _context.Bookings.Include(x => x.Room).Where(b => b.Status == null).Skip((page-1)*take).Take(take).OrderByDescending(x => x.Id).ToListAsync();
+			PaginateVM<Bookings> paginate = new PaginateVM<Bookings>()
+			{
+				Items = bookings,
+				CurrentPage = page,
+				PageCount = PageCount2(take)
+			};
+			return View(paginate);
+		}
+		private int PageCount2(int take)
+		{
+			var count = _context.Bookings.Count(x => x.Status == null);
+			return (int)Math.Ceiling((double)count / take);
 		}
 		public async Task<IActionResult> BookingEdit(int id)
 		{

@@ -14,7 +14,7 @@ namespace Hotel.ViewComponents
 		}
 		public async Task<IViewComponentResult> InvokeAsync()
 		{
-			return View(await _context.RestaurantSliders.ToListAsync());
+			return View(await _context.RestaurantSliders.OrderByDescending(x => x.Id).ToListAsync());
 		}
 	}
 }

@@ -17,40 +17,16 @@
 <body>
     <div class="checkout-container">
         <div class="left-side">
-            <div class="text-box">
-                <h1 class="home-heading">Modern Home</h1>
-                <p class="home-price"><em>249.50 USD </em>/ 1 night</p>
-                <hr class="left-hr" />
-                <p class="home-desc"><em>Entire home </em>for <em>2 guest</em></p>
-                <p class="home-desc">
-                    <em>Tue, July 23, 2022 </em>to <em>Thu, July 25, 2022</em>
-                </p>
-            </div>
         </div>
         <div class="right-side">
             <div class="receipt">
                 <h2 class="receipt-heading">Receipt Summary</h2>
                 <div>
                     <table class="table">
-                        <tr>
-                            <td>249.50 x  @(Model.EndDate.Day - Model.StartDate.Day) day</td>
-                            <td class="price">499.00 USD</td>
-                        </tr>
-                        <tr>
-                            <td>Discount</td>
-                            <td class="price">0.00 USD</td>
-                        </tr>
-                        <tr>
-                            <td>Subtotal</td>
-                            <td class="price">499.00 USD</td>
-                        </tr>
-                        <tr>
-                            <td>Tax</td>
-                            <td class="price">47.41 USD</td>
-                        </tr>
+
                         <tr class="total">
                             <td>Total</td>
-                            <td class="price">546.41 USD</td>
+                            <td class="price">@Model.Totalprice</td>
                         </tr>
                     </table>
                 </div>
@@ -60,11 +36,11 @@
                 <form method="post" asp-action="CheckOut" class="form-box" >
                     <div>
                         <label>StartDate</label>
-                        <input value="@Model.StartDate" disabled asp-format="{0: dd/MM/yyyy}" placeholder="Start Date" required type="text" />
+                        <input asp-for="@Model.StartDate" asp-format="{0:MM/dd/yyyy}" disabled placeholder="Start Date" required type="text" />
                     </div>
                     <div>
                         <label>EndDate</label>
-                        <input value="@Model.EndDate" disabled asp-format="{0:dd/MM/yyyy}" class="form-control input" placeholder="End Date" required type="text" />
+                        <input asp-for="@Model.EndDate" disabled asp-format="{0:MM/dd/yyyy}" class="form-control input" placeholder="End Date" required type="text" />
                     </div>
                     <div>
                         <label>Children Count</label>

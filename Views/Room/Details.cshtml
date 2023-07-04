@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewData["Title"] = "Details";
+}
+@model Room
+<!-- Room Page Slider -->
+<header class="header slider">
+    <div class="owl-carousel owl-theme">
+        <!-- The opacity on the image is made with "data-overlay-dark="number". You can change it using the numbers 0-9. -->
+        @foreach (var item in Model.RoomImages.Where(x=>x.IsMain==false))
+        {
+            <div class="text-center item bg-img" data-overlay-dark="3" data-background="../../assets/img/room/@item.Image"></div>
+        }
+    </div>
+    <!-- arrow down -->
+    <div class="arrow bounce text-center">
+        <a href="#" data-scroll-nav="1" class=""> <i class="ti-arrow-down"></i> </a>
+    </div>
+</header>
+<!-- Room Content -->
+<section class="rooms-page section-padding" data-scroll-index="1">
+    <div class="container">
+        <!-- project content -->
+        <div class="row">
+            <div class="col-md-12">
+                <span>
+                    <i class="star-rating"></i>
+                    <i class="star-rating"></i>
+                    <i class="star-rating"></i>
+                    <i class="star-rating"></i>
+                    <i class="star-rating"></i>
+                </span>
+                <div class="section-subtitle">@Model.RoomNumber</div>
+                <div class="section-title">@Model.RoomType.Name</div>
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6>Children Capacity</h6>
+                        <ul class="list-unstyled page-list mb-30">
+                            <li>
+                                <div class="page-list-icon"> <span class="ti-check"></span> </div>
+                                <div class="page-list-text">
+                                    <p>@Model.ChildrenCapacity</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h6>People Capacity</h6>
+                        <ul class="list-unstyled page-list mb-30">
+                            <li>
+                                <div class="page-list-icon"> <span class="ti-check"></span> </div>
+                                <div class="page-list-text">
+                                    <p>@Model.PeopleCapacity</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-12">
+                        <h6>RoomPrice</h6>
+                        <p>@Model.RoomPrice</p>
+                    </div>
+                    <div class="col-md-12">
+                        <h6>Bookings Count</h6>
+                        <p>@Model.Bookings.Count</p>
+                    </div>
+                    <div class="col-md-12">
+                        <h6>Area</h6>
+                        <p>@Model.Area</p>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="butn-dark mt-15 mb-30"> <a asp-controller="Room" asp-action="index"><span>Back to Room</span></a> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

@@ -16,7 +16,7 @@
                 <p>@Model["Description2"]</p>
                 <!-- call -->
                 <div class="reservations">
-                    <div class="icon">@Model["Phone"]</div>
+                    <div class="icon">@(Html.Raw(Model["Phone"]))</div>
                     <div class="text">
                         <p>Reservation</p> <p href="tel:855-100-4444">855 100 4444</p>
                     </div>

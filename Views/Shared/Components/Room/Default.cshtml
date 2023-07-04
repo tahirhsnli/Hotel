@@ -6,14 +6,14 @@
             <div class="position-re o-hidden"> 
                 <img width="100%" src="~/assets/img/room/@item.RoomImages.Where(x=>x.IsMain==true).FirstOrDefault().Image" alt=""> 
                 </div> 
-                <span class="category"><a href="rooms2.html">Book</a></span>
+                <span class="category"></span>
             <div class="con">
                 <h5>@item.RoomType.Name</h5>
                 <div class="line"></div>
             </div>
-            <div>
-                <a asp-controller="Order" asp-action="Index">Book Now</a>
-            </div>
+			<div >
+				<a asp-controller="Room" asp-action="Details" asp-route-id="@item.Id"><i class="fa-solid fa-circle-info"></i></a>
+			</div>
         </div>
     </div>
 }

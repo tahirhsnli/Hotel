@@ -21,7 +21,7 @@ namespace Hotel.Areas.HotelAdmin.Controllers
 
 		public async Task<IActionResult> Index()
 		{
-			return View(await _context.Professions.ToListAsync());
+			return View(await _context.Professions.OrderByDescending(x => x.Id).ToListAsync());
 		}
 		public IActionResult Create()
 		{

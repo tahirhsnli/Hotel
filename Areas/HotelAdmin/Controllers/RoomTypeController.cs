@@ -24,7 +24,7 @@ namespace Hotel.Areas.HotelAdmin.Controllers
 
 		public async Task<IActionResult> Index(int page = 1,int take = 3)
 		{
-			var roomtype = await _context.RoomTypes.Skip((page - 1) * take).Take(take).ToListAsync();
+			var roomtype = await _context.RoomTypes.Skip((page - 1) * take).Take(take).OrderByDescending(x => x.Id).ToListAsync();
 			PaginateVM<RoomType> paginateVM = new PaginateVM<RoomType>()
 			{
 				Items = roomtype,
@@ -70,7 +70,7 @@ namespace Hotel.Areas.HotelAdmin.Controllers
 				ModelState.AddModelError("", "Image is wrong");
 				return View();
 			}
-			if (roomTypeVM.ImageFile.CheckSize(200))
+			if (roomTypeVM.ImageFile.CheckSize(500))
 			{
 				ModelState.AddModelError("", "Image is big");
 				return View();
@@ -116,7 +116,7 @@ namespace Hotel.Areas.HotelAdmin.Controllers
 					ModelState.AddModelError("", "Image is wrong");
 					return View();
 				}
-				if (roomTypeVM.ImageFile.CheckSize(200))
+				if (roomTypeVM.ImageFile.CheckSize(500))
 				{
 					ModelState.AddModelError("", "Image is big");
 					return View();

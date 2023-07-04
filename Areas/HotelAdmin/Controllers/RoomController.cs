@@ -28,7 +28,7 @@ namespace Hotel.Areas.HotelAdmin.Controllers
 			ViewBag.RoomType = await _context.RoomTypes.ToListAsync();
 			var rooms = await _context.Rooms.Where(x=>x.IsDeleted == false).Skip((page-1)*take).Take(take)
 							  .Include(x => x.RoomType).Include(x => x.Bookings).Include(x => x.RoomImages)
-							  .ToListAsync();
+                              .OrderByDescending(x => x.Id).ToListAsync();
 			PaginateVM<Room> paginate = new PaginateVM<Room>()
 			{
 				Items = rooms,
@@ -72,7 +72,7 @@ namespace Hotel.Areas.HotelAdmin.Controllers
                 ModelState.AddModelError("", "Image is wrong type");
                 return View();
             }
-			if (room.MainFile.CheckSize(200))
+			if (room.MainFile.CheckSize(500))
 			{
                 ModelState.AddModelError("", "Image is big");
                 return View();
@@ -121,7 +121,7 @@ namespace Hotel.Areas.HotelAdmin.Controllers
                     ModelState.AddModelError("", "Image is wrong type");
                     return View();
                 }
-                if (room.MainFile.CheckSize(200))
+                if (room.MainFile.CheckSize(500))
                 {
                     ModelState.AddModelError("", "Image is big");
                     return View();
@@ -142,10 +142,7 @@ namespace Hotel.Areas.HotelAdmin.Controllers
 				RoomTypeId = room.RoomTypeId,
 				Area = room.Area,
 				RoomImages = room.RoomImages,
-				IsAnimal = false,
-				IsBalcony = false,
 				IsDeleted = false,
-				IsExist = false,
 			};
             await _context.Rooms.AddAsync(rom);
             await _context.SaveChangesAsync();
@@ -211,7 +208,7 @@ namespace Hotel.Areas.HotelAdmin.Controllers
 					ModelState.AddModelError("", "Image is wrong");
 					return View();
 				}
-				if (room.MainFile.CheckSize(200))
+				if (room.MainFile.CheckSize(500))
 				{
 					ModelState.AddModelError("", "Image is big");
 					return View();
@@ -233,7 +230,7 @@ namespace Hotel.Areas.HotelAdmin.Controllers
 						ModelState.AddModelError("", "Image is wrong");
 						return View();
 					}
-					if (file.CheckSize(2000))
+					if (file.CheckSize(500))
 					{
 						ModelState.AddModelError("", "Image is big");
 						return View();

@@ -1,12 +1,16 @@
 ﻿using Hotel.DAL;
 using Hotel.Models;
 using Hotel.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace Hotel.Areas.HotelAdmin.Controllers
 {
-    public class FaqController : Controller
+	[Area("HotelAdmin")]
+	[Authorize(Roles = "admin")]
+	public class FaqController : Controller
     {
         private readonly AppDbContext _context;
 
@@ -17,7 +21,7 @@ namespace Hotel.Areas.HotelAdmin.Controllers
 
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Faqs.Where(x=>x.IsDeleted).ToListAsync());
+            return View(await _context.Faqs.Where(x=>x.IsDeleted).OrderByDescending(x => x.Id).ToListAsync());
         }
         public IActionResult Create()
         {

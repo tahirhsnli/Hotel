@@ -23,7 +23,7 @@ namespace Hotel.Areas.HotelAdmin.Controllers
 
         public async Task<IActionResult> Index(int page = 1,int take = 3)
         {
-            var employees = await _context.Employees.Where(x => x.IsDeleted == false).Skip((page - 1) * take).Take(take).Include(x => x.Profession).ToListAsync();
+            var employees = await _context.Employees.Where(x => x.IsDeleted == false).Skip((page - 1) * take).Take(take).Include(x => x.Profession).OrderByDescending(x => x.Id).ToListAsync();
             PaginateVM<Employee> paginate = new PaginateVM<Employee>()
             {
                 Items = employees,
@@ -85,7 +85,7 @@ namespace Hotel.Areas.HotelAdmin.Controllers
                 ModelState.AddModelError("ImageFile", "This is not Image");
                 return View();
             }
-            if (employeeVM.ImageFile.CheckSize(200))
+            if (employeeVM.ImageFile.CheckSize(500))
             {
                 ModelState.AddModelError("ImageFile", "Image size big");
                 return View();
@@ -137,7 +137,7 @@ namespace Hotel.Areas.HotelAdmin.Controllers
 			}
 			if (employeeVM.ImageFile != null)
 			{
-				if (employeeVM.ImageFile.CheckSize(200))
+				if (employeeVM.ImageFile.CheckSize(500))
 				{
 					ModelState.AddModelError("ImageFile", "Image is big");
 					return View();

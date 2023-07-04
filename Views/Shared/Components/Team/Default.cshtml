@@ -1,22 +1,13 @@
 ﻿@model IEnumerable<Employee>
 @foreach(var item in Model)
 {
-    <div class="item">
-        <div class="img"> 
-            <img src="~/assets/img/employee/@item.Image" alt=""> 
+        <div class="item">
+            <div class="img">
+                <img src="~/assets/img/employee/@item.Image" alt="">
             </div>
-        <div class="info">
-            <h6>@item.Name @item.Surname</h6>
-            <p>@item.Profession.Name</p>
-            <div class="social valign">
-                <div class="full-width">
-                    <a href="#"><i class="ti-instagram"></i></a>
-                    <a href="#"><i class="ti-twitter"></i></a>
-                    <a href="#"><i class="ti-facebook"></i></a>
-                    <a href="#"><i class="ti-pinterest"></i></a>
-                    <p>@item.Phone</p>
-                </div>
+            <div class="info">
+                <h6>@item.Name @item.Surname</h6>
+                <p>@item.Profession.Name</p>
             </div>
         </div>
-    </div>
 }

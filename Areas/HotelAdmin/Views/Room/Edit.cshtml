@@ -79,7 +79,7 @@
 				@foreach (var item in Model.RoomImages.Where(x => x.IsMain == false))
 				{
 					<form asp-action="DeleteImage" asp-route-id="@item.Id" asp-route-id="@Model.Id">
-						<img src="~/assets/img/room/@item.Image" />
+						<img height="150px" src="~/assets/img/room/@item.Image" />
 						<div style="position:relative">
 							<button type="submit" class="bg-danger text-white" style="position:absolute;right:1px;bottom:75px">x</button>
 						</div>

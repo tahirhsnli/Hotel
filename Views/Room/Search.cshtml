@@ -1,8 +1,8 @@
 ﻿
 @{
     ViewData["Title"] = "Search";
-    var Start = ViewBag.StartDate;
-    var End = ViewBag.EndDate;
+    DateTime Start = ViewBag.StartDate;
+    DateTime End = ViewBag.EndDate;
     var Children = ViewBag.ChildrenCapacity;
     var People = ViewBag.PeopleCapacity;
 }
@@ -14,17 +14,25 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="section-subtitle">Images</div>
-                <div class="section-title">Image Gallery</div>
+                <div class="section-subtitle">Rooms</div>
+                <div class="section-title">Rooms</div>
             </div>
             @foreach (var item in Model)
             {
                 <div class="col-md-4">
                     <div class="item">
-                        <div class="position-re o-hidden"> <img src="~/assets/img/room/@item.RoomImages.Where(x=>x.IsMain==true).FirstOrDefault().Image" alt=""> </div> <span class="category"><a href="rooms2.html">Book</a></span>
+                        <div class="position-re o-hidden"> <img src="~/assets/img/room/@item.RoomImages.Where(x=>x.IsMain==true).FirstOrDefault().Image" alt=""> </div> <span class="category"></span>
                         <div class="con">
-                            <h5><a asp-controller="Order" asp-action="Checkout" asp-route-id="@item.Id" asp-route-start="@Start" asp-route-end="@End" asp-route-childrencount="@Children" asp-route-peoplecount="@People">@item.RoomType.Name</a></h5>
-                            <h5>@item.RoomPrice</h5>
+                            <h6><a >@item.RoomType.Name</a></h6>
+                            <h6>@item.RoomPrice</h6>
+                            <div class="row">
+                                <div class="col-mid-6">
+                                    <a asp-controller="Order" asp-action="Checkout" asp-route-id="@item.Id" asp-route-start="@Start" asp-route-end="@End" asp-route-childrencount="@Children" asp-route-peoplecount="@People"><i class="fa-solid fa-credit-card"></i></a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a asp-controller="Room" asp-action="Details" asp-route-id="@item.Id"><i class="fa-solid fa-circle-info"></i></a>
+                                </div>
+                            </div>
                             <div class="line"></div>
                         </div>
                     </div>

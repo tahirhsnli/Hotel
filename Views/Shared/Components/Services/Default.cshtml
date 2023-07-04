@@ -1,11 +1,30 @@
 ﻿@model Dictionary<string,string>
 <div class="row">
-    <div class="col-md-6 p-0 animate-box" data-animate-effect="fadeInLeft">
-        <div class="img left">
-            <a href=""><img src="~/@Model["Spamage"]" alt=""></a>
+    <div class="col-md-6 p-0 bg-cream valign animate-box" data-animate-effect="fadeInRight">
+        <div class="content">
+            <div class="cont text-left">
+                <div class="info">
+                    <h6>@Model["RestaurantFeature"]</h6>
+                </div>
+                <h4>@Model["RestaurantTitle"]</h4>
+                <p>@Model["RestaurantDescription"]</p>
+                <p><span class="@Model["Icon"]"></span> @Model["RestaurantTime"] </p>
+            </div>
         </div>
     </div>
-    <div class="col-md-6 p-0 bg-cream valign animate-box" data-animate-effect="fadeInRight">
+    <div class="col-md-6 p-0 animate-box" data-animate-effect="fadeInLeft">
+        <div class="img">
+            <a><img src="~/assets/img/restaurant/1.jpg" alt=""></a>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 p-0 animate-box" data-animate-effect="fadeInLeft">
+        <div class="img left">
+            <a><img src="~/assets/img/spa/1.jpg" alt=""></a>
+        </div>
+    </div>
+    <div class="col-md-6 p-0 bg-cream valign animate-box" data-animate-effect="fadeInLeft">
         <div class="content">
             <div class="cont text-left">
                 <div class="info">
@@ -33,14 +52,14 @@
     </div>
     <div class="col-md-6 p-0 order1 animate-box" data-animate-effect="fadeInRight">
         <div class="img">
-            <img src="@Model["FitnessImage"]" alt="">
+            <img src="~/assets/img/spa/2.jpg" alt="">
         </div>
     </div>
 </div>
 <div class="row">
     <div class="col-md-6 p-0 animate-box" data-animate-effect="fadeInLeft">
         <div class="img left">
-            <a><img src="@Model["PoolImage"]" alt=""></a>
+            <a><img src="~/assets/img/spa/4.jpg" alt=""></a>
         </div>
     </div>
     <div class="col-md-6 p-0 bg-cream valign animate-box" data-animate-effect="fadeInRight">

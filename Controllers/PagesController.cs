@@ -4,11 +4,11 @@ namespace Hotel.Controllers
 {
     public class PagesController : Controller
     {
-        public IActionResult Facility()
+        public IActionResult Services()
         {
             return View();
         }
-        public IActionResult Faq()
+        public IActionResult Facilities()
         {
             return View();
         }

@@ -21,8 +21,9 @@ namespace Hotel.Controllers
             _signInManager = signInManager;
         }
         [Authorize]
-        public IActionResult Checkout(DateTime start, DateTime end,int childrencount,int peoplecount)
+        public IActionResult Checkout(int id,DateTime start, DateTime end,int childrencount,int peoplecount)
         {
+            var rooms = _context.Rooms.FirstOrDefault(r => r.Id == id);
             if (start > DateTime.Today && end > DateTime.Today.AddDays(1))
             {
                 ViewBag.Startdates = start;
@@ -36,11 +37,12 @@ namespace Hotel.Controllers
                 EndDate = end,
                 ChildrenCount = childrencount,
                 PeopleCount = peoplecount,
+                Totalprice = (((end.Year - start.Year) * 365) + ((end.Day - start.Day) * 30) + ((end.Month - start.Month))) *rooms.RoomPrice,
             };
             return View(orderVM);
         }
         [HttpPost]
-        public async Task<IActionResult> Checkout(int id,DateTime StartTime,DateTime EndTime,int Children,int People)
+        public async Task<IActionResult> Checkout(int id,DateTime StartTime,DateTime EndTime,int Children,int People,OrderVM order)
         {
             AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
             var rooms = _context.Rooms.FirstOrDefault(r => r.Id == id);

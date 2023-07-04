@@ -2,26 +2,22 @@
 @{
     ViewData["Title"] = "Index";
 }
-
+@model   HomeVM
     <!-- Slider -->
+@if (Model.Sliders.Any())
+{
     <header class="header slider-fade">
         <div class="owl-carousel owl-theme">
             <!-- The opacity on the image is made with "data-overlay-dark="number". You can change it using the numbers 0-9. -->
         @await Component.InvokeAsync("Slider")
         </div>
-        <!-- slider reservation -->
-        <div class="reservation">
-            <a href="tel:8551004444">
-                <div class="icon d-flex justify-content-center align-items-center">
-                    <i class="flaticon-call"></i>
-                </div>
-                <div class="call"><span>855 100 4444</span> <br>Reservation</div>
-            </a>
-        </div>
     </header>
+}
 <!-- About -->
     @await Component.InvokeAsync("About")
     <!-- Rooms -->
+@if (Model.RoomTypes.Any())
+{
     <section class="rooms1 section-padding bg-cream" data-scroll-index="1">
         <div class="container">
             <div class="row">
@@ -35,8 +31,9 @@
             </div>
         </div>
     </section>
-    <!-- Promo Video -->
-    <section class="video-wrapper video section-padding bg-img bg-fixed" data-overlay-dark="3" data-background="img/slider/2.jpg">
+}
+<!-- Promo Video -->
+    <section class="video-wrapper video section-padding bg-img bg-fixed" data-overlay-dark="3" data-background="../../assets/img/slider/2.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 offset-md-2 text-center">
@@ -47,7 +44,7 @@
             </div>
             <div class="row">
                 <div class="text-center col-md-12">
-                    <a class="vid" href="https://youtu.be/7BGNAGahig8">
+                <a class="vid" href="https://www.youtube.com/watch?v=zr4r3n5Smho">
                         <div class="vid-butn">
                             <span class="icon">
                                 <i class="ti-control-play"></i>
@@ -60,6 +57,8 @@
         </div>
     </section>
     <!-- Facilties -->
+@if (Model.Facilities.Any())
+{
     <section class="facilties section-padding">
         <div class="container">
             <div class="row">
@@ -73,114 +72,14 @@
             </div>
         </div>
     </section>
-    <!-- Services -->
+}
+<!-- Services -->
+@if(Model.Services.Any())
+{
     <section class="services section-padding">
         <div class="container">
-            <div class="row">
-                <div class="col-md-6 p-0 animate-box" data-animate-effect="fadeInLeft">
-                    <div class="img left">
-                        <a href="restaurant.html"><img src="~/assets/img/restaurant/1.jpg" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-md-6 p-0 bg-cream valign animate-box" data-animate-effect="fadeInRight">
-                    <div class="content">
-                        <div class="cont text-left">
-                            <div class="info">
-                                <h6>Discover</h6>
-                            </div>
-                            <h4>The Restaurant</h4>
-                            <p>Restaurant inilla duiman at elit finibus viverra nec a lacus themo the nesudea seneoice misuscipit non sagie the fermen ziverra tristiue duru the ivite dianne onen nivami acsestion augue artine.</p>
-                            <div class="butn-dark"> <a href="restaurant.html"><span>Learn More</span></a> </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 bg-cream p-0 order2 valign animate-box" data-animate-effect="fadeInLeft">
-                    <div class="content">
-                        <div class="cont text-left">
-                            <div class="info">
-                                <h6>Experiences</h6>
-                            </div>
-                            <h4>Spa Center</h4>
-                            <p>Spa center inilla duiman at elit finibus viverra nec a lacus themo the nesudea seneoice misuscipit non sagie the fermen ziverra tristiue duru the ivite dianne onen nivami acsestion augue artine.</p>
-                            <div class="butn-dark"> <a href="spa-wellness.html"><span>Learn More</span></a> </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 p-0 order1 animate-box" data-animate-effect="fadeInRight">
-                    <div class="img">
-                        <a href="spa-wellness.html"><img src="~/assets/img/spa/3.jpg" alt=""></a>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 p-0 animate-box" data-animate-effect="fadeInLeft">
-                    <div class="img left">
-                        <a href="spa-wellness.html"><img src="~/assets/img/spa/2.jpg" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-md-6 p-0 bg-cream valign animate-box" data-animate-effect="fadeInRight">
-                    <div class="content">
-                        <div class="cont text-left">
-                            <div class="info">
-                                <h6>Modern</h6>
-                            </div>
-                            <h4>Fitness Center</h4>
-                            <p>Restaurant inilla duiman at elit finibus viverra nec a lacus themo the nesudea seneoice misuscipit non sagie the fermen ziverra tristiue duru the ivite dianne onen nivami acsestion augue artine.</p>
-                            <div class="butn-dark"> <a href="spa-wellness.html"><span>Learn More</span></a> </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 bg-cream p-0 order2 valign animate-box" data-animate-effect="fadeInLeft">
-                    <div class="content">
-                        <div class="cont text-left">
-                            <div class="info">
-                                <h6>Experiences</h6>
-                            </div>
-                            <h4>The Health Club & Pool</h4>
-                            <p>The health club & pool at elit finibus viverra nec a lacus themo the nesudea seneoice misuscipit non sagie the fermen ziverra tristiue duru the ivite dianne onen nivami acsestion augue artine.</p>
-                            <div class="butn-dark"> <a href="spa-wellness.html"><span>Learn More</span></a> </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 p-0 order1 animate-box" data-animate-effect="fadeInRight">
-                    <div class="img">
-                        <a href="spa-wellness.html"><img src="~/assets/img/spa/1.jpg" alt=""></a>
-                    </div>
-                </div>
-            </div>
+            @await Component.InvokeAsync("Services")
         </div>
     </section>
-    <!-- Clients -->
-    <section class="clients">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-7">
-                    <div class="owl-carousel owl-theme">
-                        <div class="clients-logo">
-                            <a href="#0"><img src="~/assets/img/clients/1.png" alt=""></a>
-                        </div>
-                        <div class="clients-logo">
-                            <a href="#0"><img src="~/assets/img/clients/2.png" alt=""></a>
-                        </div>
-                        <div class="clients-logo">
-                            <a href="#0"><img src="~/assets/img/clients/3.png" alt=""></a>
-                        </div>
-                        <div class="clients-logo">
-                            <a href="#0"><img src="~/assets/img/clients/4.png" alt=""></a>
-                        </div>
-                        <div class="clients-logo">
-                            <a href="#0"><img src="~/assets/img/clients/5.png" alt=""></a>
-                        </div>
-                        <div class="clients-logo">
-                            <a href="#0"><img src="~/assets/img/clients/6.png" alt=""></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
+
+}
