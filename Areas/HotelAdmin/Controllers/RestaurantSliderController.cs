@@ -66,7 +66,7 @@ namespace Hotel.Areas.HotelAdmin.Controllers
 		}
 		public async Task<IActionResult> Edit(int id)
 		{
-			Slider? exist = await _context.Sliders.Where(x => x.IsDeleted == false).FirstOrDefaultAsync(x => x.Id == id);
+			RestaurantSlider? exist = await _context.RestaurantSliders.FirstOrDefaultAsync(x => x.Id == id);
 			return View();
 		}
 		[HttpPost]

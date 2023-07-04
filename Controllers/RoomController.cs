@@ -37,16 +37,66 @@ namespace Hotel.Controllers
         }
         public async Task<IActionResult> Search(SearchVM search)
         {
-            decimal default_min_price = 0;
-            decimal default_max_price = 100000000000;
-            int room_type = 0;
+            decimal? default_min_price = 0;
+            decimal? default_max_price = 9999999999999;
+            int? room_type = 0;
             int childrenCapacity = 0;
 			int peopleCapacity = 0;
             var rooms = await _context.Rooms
-                                 .Include(x => x.RoomType).Include(x => x.Bookings).Include(x => x.RoomImages)
-                                 .Where(x => x.IsDeleted == false).ToListAsync();
+                              .Include(x => x.RoomType).Include(x => x.Bookings).Include(x => x.RoomImages)
+                              .Where(x => x.IsDeleted == false).ToListAsync();
             ViewBag.StartDate = search.StartDate;
             ViewBag.EndDate = search.EndDate;
+            ViewBag.ChildrenCapacity = search.ChildrenCapacity;
+            ViewBag.PeopleCapacity = search.PeopleCapacity;
+            if (!ModelState.IsValid)
+            {
+                if(search.RoomTypeId != null)
+                {
+                    ModelState.AddModelError("", "The Search is null");
+                    return View(rooms);
+                }
+            }
+            if (search.StartDate <= DateTime.Today)
+            {
+                ModelState.AddModelError("StartDate", "The StartDate cannot be less than today");
+                return View(rooms);
+            }
+            if (search.StartDate <= DateTime.Today.AddDays(1))
+            {
+                ModelState.AddModelError("EndDate","The EndDate cannot be less than tomorrow");
+                return View(rooms);
+            }
+            if(search.PeopleCapacity <= 0)
+            {
+                ModelState.AddModelError("PeopleCapacity", "The PeopleCapacity cannot be 0 or negative");
+                return View(rooms);
+            }
+            if (search.ChildrenCapacity <= 0)
+            {
+                ModelState.AddModelError("ChildrenCapacity", "The ChildrenCapacity cannot be 0 or negative");
+                return View(rooms);
+            }
+            if(search.Maxprice <= 0 ) 
+            {
+                ModelState.AddModelError("MaxPrice", "The MaxPrice cannot be 0 or negative");
+                return View(rooms);
+            }
+            if(search.Minprice <= 0 )
+            {
+                ModelState.AddModelError("MaxPrice", "The MinPrice cannot be 0 or negative");
+                return View(rooms);
+            }
+            if(search.Maxprice <= search.Minprice)
+            {
+                ModelState.AddModelError("", "Max price cannot be less than Min price");
+                return View(rooms);
+            }
+            if(search.StartDate >= search.EndDate)
+            {
+                ModelState.AddModelError("", "The start date cannot be greater than the end date");
+                return View(rooms);
+            }
             if (search.RoomTypeId != 0)
             {
                 room_type = search.RoomTypeId;
@@ -68,26 +118,20 @@ namespace Hotel.Controllers
             {
                 peopleCapacity = search.PeopleCapacity;
             }
-			var allrooms = await _context.Rooms
-                                 .Include(x => x.RoomType).Include(x => x.Bookings).Include(x => x.RoomImages)
-                                 .Where(x => x.IsDeleted == false && x.RoomPrice >= default_min_price &&
-                                 x.RoomPrice <= default_max_price && x.ChildrenCapacity >= childrenCapacity && (!(x.Bookings.FirstOrDefault().EndDate >= search.StartDate &&
-                                 x.Bookings.FirstOrDefault().StartDate <= search.EndDate) || x.Bookings.FirstOrDefault().Id == null) &&
-                                 x.PeopleCapacity >= peopleCapacity).ToListAsync();
 
-            var aa = await _context.Rooms.Include(x => x.RoomType).Include(x => x.Bookings).Include(x => x.RoomImages).
+            var allrooms = await _context.Rooms.Include(x => x.RoomType).Include(x => x.Bookings).Include(x => x.RoomImages).
                 Where(x => x.IsDeleted == false && x.RoomPrice >= default_min_price &&
-                                 x.RoomPrice <= default_max_price && x.ChildrenCapacity >= childrenCapacity &&
+                                 x.RoomPrice <= default_max_price && x.ChildrenCapacity >= childrenCapacity && x.PeopleCapacity >= peopleCapacity &&
                                  x.Bookings.All(m=>!(m.EndDate >= search.StartDate && m.StartDate <= search.EndDate)) || x.Bookings == null).ToListAsync();
             
             var spesificRoomtypesPrices = await _context.Rooms
                               .Include(x => x.RoomType).Include(x => x.Bookings).Include(x => x.RoomImages)
                               .Where(x => x.IsDeleted == false && x.RoomPrice >= default_min_price &&
 							  x.PeopleCapacity >= peopleCapacity && x.ChildrenCapacity >= childrenCapacity &&
-							  x.RoomPrice <= default_max_price && x.RoomTypeId == room_type).ToListAsync();
-            if(room_type == 0)
+							  x.RoomPrice <= default_max_price && x.RoomTypeId == room_type && x.Bookings.All(m => !(m.EndDate >= search.StartDate && m.StartDate <= search.EndDate)) || x.Bookings == null).ToListAsync();
+            if(room_type == null)
             {
-                return View(aa);
+                return View(allrooms);
             }
             return View(spesificRoomtypesPrices);
         }

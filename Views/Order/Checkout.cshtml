@@ -1,6 +1,10 @@
 ﻿
 @{
     Layout = null;
+    var StartTime = ViewBag.Startdates;
+    var EndTime = ViewBag.Enddates;
+    var childrencount = ViewBag.ChildrenCount;
+    var peoplecount = ViewBag.PeopleCount;
 }
 @model OrderVM
 <!DOCTYPE html>
@@ -11,7 +15,6 @@
     <link rel="stylesheet" href="~/checkout/style.css">
 </head>
 <body>
-    <script src="https://kit.fontawesome.com/bb515311f9.js" crossorigin="anonymous"></script>
     <div class="checkout-container">
         <div class="left-side">
             <div class="text-box">
@@ -30,7 +33,7 @@
                 <div>
                     <table class="table">
                         <tr>
-                            <td>249.50 x 2 nights</td>
+                            <td>249.50 x  @(Model.EndDate.Day - Model.StartDate.Day) day</td>
                             <td class="price">499.00 USD</td>
                         </tr>
                         <tr>
@@ -54,30 +57,24 @@
             </div>
             <div class="payment-info">
                 <h3 class="payment-heading">Hotel Information</h3>
-                <form method="post" asp-action="Checkout" class="form-box" enctype="text/plain" target="_blank">
+                <form method="post" asp-action="CheckOut" class="form-box" >
                     <div>
-                        
-                        <label asp-for="StartDate">StartDate</label>
-                        <input asp-for="StartDate" value="@Model.StartDate" disabled asp-format="{0: dd/MM/yyyy}" placeholder="Start Date" required type="text" />
-                        <span asp-validation-for="StartDate"></span>
+                        <label>StartDate</label>
+                        <input value="@Model.StartDate" disabled asp-format="{0: dd/MM/yyyy}" placeholder="Start Date" required type="text" />
                     </div>
                     <div>
-                        <label asp-for="EndDate">EndDate</label>
-                        <input asp-for="EndDate" value="@Model.EndDate" disabled asp-format="{0:dd/MM/yyyy}" class="form-control input" placeholder="End Date" required type="text" />
-                        <span asp-validation-for="EndDate"></span>
+                        <label>EndDate</label>
+                        <input value="@Model.EndDate" disabled asp-format="{0:dd/MM/yyyy}" class="form-control input" placeholder="End Date" required type="text" />
                     </div>
                     <div>
-                        <label asp-for="ChildrenCount">Children Count</label>
-                        <input asp-for="ChildrenCount" placeholder="Children Count" required type="text" />
-                        <span asp-validation-for="ChildrenCount"></span>
+                        <label>Children Count</label>
+                        <input value="@Model.ChildrenCount" disabled placeholder="Children Count" required type="text" />
                     </div>
                     <div>
-                        <label asp-for="PeopleCount">People Count</label>
-                        <input asp-for="PeopleCount" placeholder="People Count" required type="text" />
-                        <span asp-validation-for="PeopleCount"></span>
+                        <label>People Count</label>
+                        <input value="@Model.PeopleCount" disabled placeholder="People Count" required type="text" />
                     </div>
-                    <div asp-validation-summary="ModelOnly"></div>
-                    <button class="btn" type="submit">
+                    <button class="btn" type="submit" asp-route-StartTime="@StartTime" asp-route-EndTime="@EndTime" asp-route-Children="@childrencount" asp-route-People="@peoplecount">
                         <i class="fa-solid fa-lock"></i> Send
                     </button>
                 </form>

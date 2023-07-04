@@ -53,7 +53,7 @@ namespace Hotel.Areas.HotelAdmin.Controllers
 				ModelState.AddModelError("ImageFile", "Image is null");
 				return View();
 			}
-			if (sliderVM.ImageFile.CheckSize(200))
+			if (sliderVM.ImageFile.CheckSize(500))
 			{
 				ModelState.AddModelError("ImageFile", "Image size big");
 				return View();
@@ -95,7 +95,7 @@ namespace Hotel.Areas.HotelAdmin.Controllers
 			}
 			if (sliderVM.ImageFile != null)
 			{
-				if (sliderVM.ImageFile.CheckSize(200))
+				if (sliderVM.ImageFile.CheckSize(500))
 				{
 					ModelState.AddModelError("ImageFile", "Image is big");
 					return View();

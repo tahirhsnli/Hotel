@@ -1,6 +1,7 @@
 ﻿using Hotel.DAL;
 using Hotel.Models;
 using Hotel.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -19,23 +20,27 @@ namespace Hotel.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
         }
-        public IActionResult Checkout(DateTime start, DateTime end)
+        [Authorize]
+        public IActionResult Checkout(DateTime start, DateTime end,int childrencount,int peoplecount)
         {
-            if(start > DateTime.Today && end > DateTime.Today.AddDays(1))
+            if (start > DateTime.Today && end > DateTime.Today.AddDays(1))
             {
-                ViewBag.Enddate = end;
-                ViewBag.Startdate = start;
+                ViewBag.Startdates = start;
+                ViewBag.Enddates = end;
             }
-            
+            ViewBag.ChildrenCount = childrencount;
+            ViewBag.PeopleCount = peoplecount;
             OrderVM orderVM = new OrderVM()
             {
                 StartDate = start,
-                EndDate = end
+                EndDate = end,
+                ChildrenCount = childrencount,
+                PeopleCount = peoplecount,
             };
             return View(orderVM);
         }
         [HttpPost]
-        public async Task<IActionResult> Checkout(OrderVM orderVM,int id)
+        public async Task<IActionResult> Checkout(int id,DateTime StartTime,DateTime EndTime,int Children,int People)
         {
             AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
             var rooms = _context.Rooms.FirstOrDefault(r => r.Id == id);
@@ -43,9 +48,12 @@ namespace Hotel.Controllers
             {
                 Status = null,
                 AppUser = user,
-                ChildrenCount = orderVM.ChildrenCount,
-                PeopleCount = orderVM.PeopleCount,
-                RoomId = id
+                ChildrenCount = Children,
+                StartDate = StartTime,
+                EndDate = EndTime,
+                PeopleCount = People,
+                RoomId = id,
+                TotalPrice = (int)(EndTime.Day - StartTime.Day) * rooms.RoomPrice
             };
             await _context.Bookings.AddAsync(bookings);
             await _context.SaveChangesAsync();

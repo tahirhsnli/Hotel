@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+<!-- Spa-Wellness Slider -->
+<header class="header slider">
+    <div class="owl-carousel owl-theme">
+        <!-- The opacity on the image is made with "data-overlay-dark="number". You can change it using the numbers 0-9. -->
+        @await Component.InvokeAsync("SpaSlider")
+    </div>
+    <!-- arrow down -->
+    <div class="arrow bounce text-center">
+        <a href="#" data-scroll-nav="1" class=""> <i class="ti-arrow-down"></i> </a>
+    </div>
+</header>
+<!-- Spa-Wellness Content -->
+@await Component.InvokeAsync("SpaWelness")
+<!-- Services -->
+<section class="services section-padding2">
+    <div class="container">
+        @await Component.InvokeAsync("Services")
+    </div>
+</section>
+<!-- Faqs -->
+<section class="section-padding bg-cream">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-subtitle">F.A.Qs</div>
+                <div class="section-title">Spa Etiquette</div>
+            </div>
+            <div class="col-md-12">
+                <ul class="accordion-box clearfix">
+                    <li class="accordion block">
+                        <div class="acc-btn">Arriving at The Spa</div>
+                        <div class="acc-content">
+                            <div class="content">
+                                <div class="text">Please arrive at The Spa 15 minutes prior to your scheduled treatment and enjoy the calm and serenity of The Spa atmosphere. Arriving late makes it necessary to curtail the time for your treatment.</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="accordion block">
+                        <div class="acc-btn">Mobile Phones</div>
+                        <div class="acc-content">
+                            <div class="content">
+                                <div class="text">Kindly refrain from using your mobile phone in The Spa premises. Please keep your mobile phone on silent mode at all times.</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="accordion block">
+                        <div class="acc-btn">Valuables</div>
+                        <div class="acc-content">
+                            <div class="content">
+                                <div class="text">We provide a secure place for your personal items inside The Spa complex. However, we do not accept liability for loss or damage. We recommend valuable items are stored inside the safe located in your hotel room/suite.</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="accordion block">
+                        <div class="acc-btn">Health Matters</div>
+                        <div class="acc-content">
+                            <div class="content">
+                                <div class="text">Please communicate health conditions such as high blood pressure and allergies, as well as pregnancy or any health-related concerns you may have when making your appointment. We do not recommend the consumption of alcohol before or directly after spa treatments or before using any facilities in the Spa and Health Club.</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="accordion block">
+                        <div class="acc-btn">Children</div>
+                        <div class="acc-content">
+                            <div class="content">
+                                <div class="text">The minimum age for entry to The Spa, The Health Club and the hydrothermal facilities is 16 years of age. Children under the age of 16 may use the hotel pool if they are accompanied by a parent/adult.</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="accordion block">
+                        <div class="acc-btn">Safety</div>
+                        <div class="acc-content">
+                            <div class="content">
+                                <div class="text">The max depth of the pool is 1.60 m. There is no lifeguard at the pool. Children may only use the pool if accompanied by an adult or parent/guardian.</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="accordion block">
+                        <div class="acc-btn">Smoking</div>
+                        <div class="acc-content">
+                            <div class="content">
+                                <div class="text">Kindly note that you are not allowed to smoke in The Spa, The Health Club or sauna area.</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

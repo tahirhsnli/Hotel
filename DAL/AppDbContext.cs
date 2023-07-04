@@ -24,6 +24,7 @@ namespace Hotel.DAL
         public DbSet<Restaurant> Restaurant { get; set; }
         public DbSet<Spa> Spa { get; set; }
         public DbSet<SpaSlider> SpaSliders { get; set; }
-
+        public DbSet<Services> Services { get; set; }
+        public DbSet<Faq> Faqs { get; set; }
     }
 }

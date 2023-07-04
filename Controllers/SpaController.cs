@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Hotel.Areas.HotelAdmin.Controllers
+namespace Hotel.Controllers
 {
-    public class RestaurantController : Controller
+    public class SpaController : Controller
     {
         public IActionResult Index()
         {

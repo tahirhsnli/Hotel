@@ -13,52 +13,7 @@
         <a href="#" data-scroll-nav="1" class=""> <i class="ti-arrow-down"></i> </a>
     </div>
 </header>
-<!-- Restaurant Content -->
-<section class="rooms-page section-padding" data-scroll-index="1">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-left">
-                <span>
-                    <i class="star-rating"></i>
-                    <i class="star-rating"></i>
-                    <i class="star-rating"></i>
-                    <i class="star-rating"></i>
-                    <i class="star-rating"></i>
-                </span>
-                <div class="section-subtitle">An Experience for the Senses</div>
-                <div class="section-title">The Restaurant</div>
-            </div>
-            <div class="col-md-12">
-                <p class="mb-30">Led by Chef de Micheal Martin, The Restaurant is celebrated for its excellent cuisine and unique ambience. The gorgeous dining room features three open studio kitchens, allowing you to enjoy the sights and sounds of the culinary artistry on display. The menu showcases both Asian and European influences, with a tempting selection of classic favorites and creative dishes for you to sample. Cheese connoisseurs will be drawn to the The Wine and Cheese Cellar, housed in five-meter-high glass walls, where our knowledgeable staff can introduce you to some of New York's greatest culinary treasures.</p>
-                <h6>Hours</h6>
-                <ul class="list-unstyled page-list mb-30">
-                    <li>
-                        <div class="page-list-icon"> <span class="ti-time"></span> </div>
-                        <div class="page-list-text">
-                            <p>Breakfast: 7.00 am – 11.00 am (daily)</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="page-list-icon"> <span class="ti-time"></span> </div>
-                        <div class="page-list-text">
-                            <p>Lunch: 12.00 noon – 2.00 pm (daily)</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="page-list-icon"> <span class="ti-time"></span> </div>
-                        <div class="page-list-text">
-                            <p>Dinner: open from 6.30 pm, last order at 10.00 pm (daily)</p>
-                        </div>
-                    </li>
-                </ul>
-                <h6>Dress Code</h6>
-                <p>Smart casual (no shorts, hats, or sandals permitted)</p>
-                <h6>Terrace</h6>
-                <p>Open for drinks only</p>
-            </div>
-        </div>
-    </div>
-</section>
+@await Component.InvokeAsync("Restaurant")
 <!-- Restaurant Menu -->
 <section id="menu" class="restaurant-menu menu section-padding bg-blck">
     <div class="container">

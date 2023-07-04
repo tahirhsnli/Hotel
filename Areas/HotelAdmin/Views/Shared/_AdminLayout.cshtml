@@ -175,7 +175,13 @@
 								<li><a asp-controller="Employee" asp-action="Create" asp-area="HotelAdmin"> Add Employee </a></li>
 							</ul>
 						</li>
-						<li> <a asp-controller="Pricing" asp-action="Index" asp-area="HotelAdmin"><i class="far fa-money-bill-alt"></i> <span>Pricing</span></a> </li>
+						<li class="submenu">
+							<a href="#"><i class="far fa-money-bill-alt"></i> <span> Facility </span> <span class="menu-arrow"></span></a>
+							<ul class="submenu_class" style="display: none;">
+								<li><a asp-controller="Facility" asp-action="Index" asp-area="HotelAdmin">All Facilities </a></li>
+								<li><a asp-controller="Facility" asp-action="Create" asp-area="HotelAdmin">All Facilities >Add Facility </a></li>
+							</ul>
+						</li>
 						<li class="submenu">
 							<a href="#"><i class="far fa-bell"></i> <span> Slider </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
@@ -184,10 +190,31 @@
 							</ul>
 						</li>
 						<li class="submenu">
-							<a href="#"><i class="far fa-money-bill-alt"></i> <span> Facility </span> <span class="menu-arrow"></span></a>
+							<a href="#"><i class="far fa-bell"></i> <span> RestaurantSlider </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
-								<li><a asp-controller="Facility" asp-action="Index" asp-area="HotelAdmin">All Facilities </a></li>
-								<li><a asp-controller="Facility" asp-action="Create" asp-area="HotelAdmin">All Facilities >Add Facility </a></li>
+								<li><a asp-controller="RestaurantSlider" asp-action="Index" asp-area="HotelAdmin">All Slider</a></li>
+								<li><a asp-controller="RestaurantSlider" asp-action="Create" asp-area="HotelAdmin"> Add Slider </a></li>
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#"><i class="far fa-bell"></i> <span> SpaSlider </span> <span class="menu-arrow"></span></a>
+							<ul class="submenu_class" style="display: none;">
+								<li><a asp-controller="SpaSlider" asp-action="Index" asp-area="HotelAdmin">All Slider</a></li>
+								<li><a asp-controller="SpaSlider" asp-action="Create" asp-area="HotelAdmin"> Add Slider </a></li>
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#"><i class="far fa-bell"></i> <span> Restaurant </span> <span class="menu-arrow"></span></a>
+							<ul class="submenu_class" style="display: none;">
+								<li><a asp-controller="HotelRestaurant" asp-action="Index" asp-area="HotelAdmin">All Slider</a></li>
+								<li><a asp-controller="HotelRestaurant" asp-action="Create" asp-area="HotelAdmin"> Add Slider </a></li>
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#"><i class="far fa-bell"></i> <span> Spa </span> <span class="menu-arrow"></span></a>
+							<ul class="submenu_class" style="display: none;">
+								<li><a asp-controller="HotelSpa" asp-action="Index" asp-area="HotelAdmin">All Slider</a></li>
+								<li><a asp-controller="HotelSpa" asp-action="Create" asp-area="HotelAdmin"> Add Slider </a></li>
 							</ul>
 						</li>
 						<li class="submenu">

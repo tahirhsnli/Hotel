@@ -1,0 +1,47 @@
+﻿    <!-- Restaurant Content -->
+@model Dictionary<string,string>
+<section class="rooms-page section-padding" data-scroll-index="1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-left">
+                <span>
+                    <i class="star-rating"></i>
+                    <i class="star-rating"></i>
+                    <i class="star-rating"></i>
+                    <i class="star-rating"></i>
+                    <i class="star-rating"></i>
+                </span>
+                <div class="section-subtitle">@Model["Title"]</div>
+                <div class="section-title">The Restaurant</div>
+            </div>
+            <div class="col-md-12">
+                <p class="mb-30">@Model["Description"]</p>
+                <h6>@Model["Title2"]</h6>
+                <ul class="list-unstyled page-list mb-30">
+                    <li>
+                        <div class="page-list-icon"> <span class="ti-time"></span> </div>
+                        <div class="page-list-text">
+                            <p>Breakfast: @Model["Breakfast"]</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="page-list-icon"> <span class="ti-time"></span> </div>
+                        <div class="page-list-text">
+                            <p>Lunch: @Model["Lunch"]</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="page-list-icon"> <span class="ti-time"></span> </div>
+                        <div class="page-list-text">
+                            <p>Dinner: @Model["Dinner"]</p>
+                        </div>
+                    </li>
+                </ul>
+                <h6>@Model["Title3"]</h6>
+                <p>@Model["DressDescription"]</p>
+                <h6>@Model["Title4"]</h6>
+                <p>@Model["TerraceDescription"]</p>
+            </div>
+        </div>
+    </div>
+</section>

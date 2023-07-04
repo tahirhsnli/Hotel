@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "Faq";
+}
+<!-- Header Banner -->
+<div class="banner-header section-padding valign bg-img bg-fixed" data-overlay-dark="4" data-background="img/slider/5.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-left caption mt-90">
+                <h5>F.A.Qs</h5>
+                <h1>Frequently Asked Questions</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Faqs -->
+<section class="section-padding bg-cream">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="accordion-box clearfix">
+                    @await Component.InvokeAsync("Faq")
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

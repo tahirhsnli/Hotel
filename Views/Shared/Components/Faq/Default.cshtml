@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Faq>
+@foreach(var item in Model)
+{
+    <li class="accordion block">
+        <div class="acc-btn">@item.Question</div>
+        <div class="acc-content">
+            <div class="content">
+                <div class="text">@item.Answer</div>
+            </div>
+        </div>
+    </li>
+}

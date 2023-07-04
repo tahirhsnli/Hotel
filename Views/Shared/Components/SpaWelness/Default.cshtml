@@ -1,0 +1,21 @@
+﻿@model Dictionary<string,string>
+<section class="rooms-page section-padding" data-scroll-index="1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <span><i class="star-rating"></i><i class="star-rating"></i><i class="star-rating"></i><i class="star-rating"></i><i class="star-rating"></i></span>
+                <div class="section-subtitle">So Many Ways to Unwind</div>
+                <div class="section-title">@Model["Title"]</div>
+                <p class="mb-30">@Model["Description"]</p>
+            </div>
+            <div class="col-md-12">
+                <div class="reservations">
+                    <div class="icon"><span class="@Model["PhoneIcon"]"></span></div>
+                    <div class="text">
+                        <p>Reservations</p> <span>@Model["Phone"]</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

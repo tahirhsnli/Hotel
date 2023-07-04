@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewData["Question"] = "Create";
+}
+@model FaqVM
+<div class="content container-fluid">
+	<div class="page-header">
+		<div class="row align-items-center">
+			<div class="col">
+				<h3 class="page-title mt-5">Add Faq</h3>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-12">
+			<form asp-action="Create" enctype="multipart/form-data">
+				<div class="row formtype">
+					<div class="col-md-4">
+						<div class="form-group">
+							<label asp-for="Question">Question</label>
+							<input asp-for="Question" class="form-control" type="text">
+							<span asp-validation-for="Question"></span>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group">
+							<label asp-for="Answer">Answer</label>
+							<input asp-for="Answer" class="form-control" type="text">
+							<span asp-validation-for="Answer"></span>
+						</div>
+					</div>
+					<div asp-validation-summary="ModelOnly"></div>
+				</div>
+				<button type="submit" class="btn btn-primary buttonedit ml-2">Add</button>
+				<button class="btn btn-primary"><a asp-action="Index">Cancel</a></button>
+			</form>
+		</div>
+	</div>
+</div>

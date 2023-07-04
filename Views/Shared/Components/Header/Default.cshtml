@@ -57,10 +57,11 @@
                 <li class="nav-item dropdown">
                     <span class="nav-link"> Pages <i class="ti-angle-down"></i></span>
                     <ul class="dropdown-menu last">
-                        <li class="dropdown-item"><a href="services.html">Services</a></li>
-                        <li class="dropdown-item"><a href="facilities.html">Facilites</a></li>
+                        <li class="dropdown-item"><a asp-controller="Pages" asp-action="Services">Services</a></li>
+                        <li class="dropdown-item"><a asp-controller="Pages" asp-action="Facilities">Facilites</a></li>
                         <li class="dropdown-item"><a href="gallery.html">Gallery</a></li>
                         <li class="dropdown-item"><a href="team.html">Team</a></li>
+                        <li class="dropdown-item"><a asp-controller="Pages" asp-action="Faq">F.A.Q</a></li>
                     </ul>
                 </li>
                 @if (User.Identity.IsAuthenticated)
