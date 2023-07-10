@@ -18,26 +18,23 @@
         <!-- Logo -->
         <div class="logo-wrapper navbar-brand valign">
             <a href="index.html">
-                <div class="logo">
+                <h3 style="color:burlywood">@Model["HotelName"]</h3>
+@*                <div class="logo">
                     <img src="~/assets/img/logo.png" class="logo-img" alt="">
-                </div>
+                </div>*@
             </a>
         </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"><i class="ti-menu"></i></span> </button>
         <!-- Navbar links -->
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item dropdown">
-                    <span class="nav-link active"> Home <i class="ti-angle-down"></i></span>
-                    <ul class="dropdown-menu last">
-                        <li class="dropdown-item active"><a asp-controller="Home" asp-action="Index">Home</a></li>
-                    </ul>
-                </li>
+                <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index">Home</a></li>
                 <li class="nav-item"><a class="nav-link" asp-controller="About" asp-action="Index">About</a></li>
                 <li class="nav-item dropdown">
                     <span class="nav-link"> Rooms & Suites <i class="ti-angle-down"></i></span>
                     <ul class="dropdown-menu last">
                         <li class="dropdown-item"><a asp-controller="Room" asp-action="Index">Rooms </a></li>
+                        <li class="dropdown-item"><a asp-controller="Room" asp-action="Search">Seaarch Rooms </a></li>
                     </ul>
                 </li>
                 <li class="nav-item"><a class="nav-link" asp-controller="Restaurant" asp-action="Index">Restaurant</a></li>
@@ -47,6 +44,9 @@
                     <ul class="dropdown-menu last">
                         <li class="dropdown-item"><a asp-controller="Pages" asp-action="Services">Services</a></li>
                         <li class="dropdown-item"><a asp-controller="Pages" asp-action="Facilities">Facilites</a></li>
+                        <li class="dropdown-item"><a asp-controller="Pages" asp-action="FAQ">F.A.Qs</a></li>
+                        <li class="dropdown-item"><a asp-controller="Pages" asp-action="Team">Team</a></li>
+                        <li class="dropdown-item"><a asp-controller="Pages" asp-action="Images">Gallery</a></li>
                     </ul>
                 </li>
                 @if (User.Identity.IsAuthenticated)

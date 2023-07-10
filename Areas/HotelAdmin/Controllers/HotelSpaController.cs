@@ -25,29 +25,29 @@ public class HotelSpaController : Controller
     }
     public async Task<IActionResult> Edit(int id)
     {
-        Restaurant? exist = await _context.Restaurant.FirstOrDefaultAsync(x => x.Id == id);
-        RestaurantVM restaurant = new RestaurantVM()
+        Spa? exist = await _context.Spa.FirstOrDefaultAsync(x => x.Id == id);
+        SpaVM spa = new SpaVM()
         {
             Value = exist.Value
         };
-        return View(restaurant);
+        return View(spa);
     }
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(RestaurantVM restaurantVM)
+    public async Task<IActionResult> Edit(SpaVM spaVM)
     {
         if (!ModelState.IsValid)
         {
-            ModelState.AddModelError("", "About is null");
+            ModelState.AddModelError("", "Spa is null");
             return View();
         }
-        Restaurant? exist = await _context.Restaurant.FirstOrDefaultAsync(x => x.Id == restaurantVM.Id);
+        Spa? exist = await _context.Spa.FirstOrDefaultAsync(x => x.Id == spaVM.Id);
         if (exist == null)
         {
             ModelState.AddModelError("", "Value is null");
             return View();
         }
-        exist.Value = restaurantVM.Value;
+        exist.Value = spaVM.Value;
         await _context.SaveChangesAsync();
         return RedirectToAction("Index");
     }

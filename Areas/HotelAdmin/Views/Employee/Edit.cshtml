@@ -47,18 +47,20 @@
 						<div class="form-group">
 							<label asp-for="ProfessionId">Profession</label>
 							<select asp-for="ProfessionId" class="form-control" asp-items="new SelectList(ViewBag.Profession,nameof(Profession.Id),nameof(Profession.Name))"></select>
+							<span asp-validation-for="ProfessionId"></span>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="form-group">
 							<label asp-for="ImageFile">Image</label>
 							<input asp-for="ImageFile" class="form-control" accept="image/*">
+							<span asp-validation-for="ImageFile"></span>
 						</div>
 					</div>
 					<div asp-validation-summary="ModelOnly"></div>
 				</div>
 				<button type="submit" class="btn btn-primary buttonedit ml-2">Add Employee</button>
-				<button class="btn btn-primary"><a asp-action="Index">Cancel</a></button>
+				<button class="btn btn-danger"><a style="color:white" asp-action="Index">Cancel</a></button>
 			</form>
 		</div>
 	</div>

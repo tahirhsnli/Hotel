@@ -53,7 +53,7 @@
                     <div class="input1_wrapper">
                         <label>Start date</label>
                         <div class="input1_inner">
-                            <input asp-for="StartDate" type="text" asp-format="{0:dd/MM/yyyy}" class="form-control input" placeholder="Check in" value="@DateTime.Today.ToString("dd/MM/yyyy")">
+                            <input asp-for="StartDate" type="text" asp-format="{0:MM/dd/yyyy}" class="form-control input datepicker" placeholder="Check in" value="@DateTime.Today.AddDays(1).ToString("MM/dd/yyyy")">
                             <span asp-validation-for="StartDate"></span>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
                     <div class="input1_wrapper">
                         <label>End Date</label>
                         <div class="input1_inner">
-                            <input asp-for="EndDate" type="text " asp-format="{0:dd/MM/yyyy}" class="form-control input" placeholder="Check out" value="@DateTime.Today.AddDays(1).ToString("dd/MM/yyyy")" />
+                            <input asp-for="EndDate" type="text" asp-format="{0:MM/dd/yyyy}" class="form-control input datepicker" placeholder="Check out" value="@DateTime.Today.AddDays(2).ToString("MM/dd/yyyy")" />
                             <span asp-validation-for="EndDate"></span>
                         </div>
                     </div>

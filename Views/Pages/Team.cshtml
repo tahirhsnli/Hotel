@@ -2,17 +2,15 @@
 @{
     ViewData["Title"] = "Team";
 }
+<!-- Header Banner -->
+@await Component.InvokeAsync("TeamHeader")
 <!-- Team -->
-<section class="facilties section-padding">
+<section class="team section-padding bg-cream">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <div class="section-subtitle">Our Services</div>
-                <div class="section-title">Hotel Facilities</div>
+            <div class="col-md-12 owl-carousel owl-theme">
+                @await Component.InvokeAsync("Team")
             </div>
-        </div>
-        <div class="row">
-            @await Component.InvokeAsync("Team")
         </div>
     </div>
 </section>

@@ -2378,8 +2378,14 @@ hr {
 .rooms1 .item .con .permalink i:hover {
 color: #aa8453;
 }
-
-
+.rooms1 .item {
+    height : 400px;
+    width : 350px;
+}
+.rooms1 .item div img{
+    height : 400px;
+    width : 350px;
+}
 /* ======= Rooms 2 style  ======= */
 .rooms2 {
     position: relative;

@@ -26,5 +26,8 @@ namespace Hotel.DAL
         public DbSet<SpaSlider> SpaSliders { get; set; }
         public DbSet<Services> Services { get; set; }
         public DbSet<Faq> Faqs { get; set; }
+        public DbSet<HeaderSection> HeaderSections { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<Client> Clients { get; set; }
     }
 }

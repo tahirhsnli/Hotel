@@ -1,4 +1,6 @@
 ﻿using Hotel.DAL;
+using Hotel.Models;
+using Hotel.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,7 +17,8 @@ namespace Hotel.ViewComponents
         
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            return View(await _context.RoomTypes.OrderByDescending(x => x.Id).ToListAsync());
+            var types = await _context.RoomTypes.OrderByDescending(x => x.Id).ToListAsync();
+            return View(types);
         }
     }
 }

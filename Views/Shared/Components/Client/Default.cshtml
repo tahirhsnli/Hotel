@@ -1,0 +1,7 @@
+﻿@model IEnumerable<Client>
+@foreach(var item in Model)
+{
+    <div class="clients-logo">
+        <a><img src="~/assets/img/clients/@item.Image" alt=""></a>
+    </div>
+}

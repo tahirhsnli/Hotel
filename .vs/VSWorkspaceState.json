@@ -3,8 +3,13 @@
     "",
     "\\Areas",
     "\\Areas\\HotelAdmin",
-    "\\Areas\\HotelAdmin\\Controllers"
+    "\\Areas\\HotelAdmin\\Controllers",
+    "\\Views",
+    "\\Views\\Shared",
+    "\\Views\\Shared\\Components",
+    "\\Views\\Shared\\Components\\Footer",
+    "\\Views\\Shared\\Components\\Header"
   ],
-  "SelectedNode": "\\Areas\\HotelAdmin\\Controllers\\EmployeeController.cs",
+  "SelectedNode": "\\Views\\Shared\\Components\\Header\\Default.cshtml",
   "PreviewInSolutionExplorer": false
 }

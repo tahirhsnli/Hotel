@@ -1,4 +1,16 @@
 ﻿@model Dictionary<string,string> 
+<!-- Clients -->
+<section class="clients">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="owl-carousel owl-theme">
+                    @await Component.InvokeAsync("Client")
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <!-- Footer -->
 <footer class="footer">
     <div class="footer-top">
@@ -30,8 +42,8 @@
                             <p class="footer-contact-phone"><span class="@Model["phoneicon"]"></span> @Model["phone"]</p>
                             <p class="footer-contact-mail">@Model["gmail"]</p>
                         </div>
+                    </div>
                 </div>
-            </div>
         </div>
     </div>
     <div class="footer-bottom">
@@ -45,6 +57,7 @@
             </div>
         </div>
     </div>
+
 </footer>
 <!-- jQuery -->
 <script src="~/assets/js/jquery-3.6.3.min.js"></script>

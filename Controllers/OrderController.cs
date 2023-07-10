@@ -37,7 +37,7 @@ namespace Hotel.Controllers
                 EndDate = end,
                 ChildrenCount = childrencount,
                 PeopleCount = peoplecount,
-                Totalprice = (((end.Year - start.Year) * 365) + ((end.Day - start.Day) * 30) + ((end.Month - start.Month))) *rooms.RoomPrice,
+                Totalprice = (((end.Year - start.Year) * 365) + ((end.Month - start.Month) * 30) + ((end.Day - start.Day))) *rooms.RoomPrice,
             };
             return View(orderVM);
         }

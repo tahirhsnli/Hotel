@@ -3,15 +3,13 @@
     ViewData["Title"] = "Index";
 }
 @model PaginateVM<Room>
-<!-- Booking Search -->
-@await Component.InvokeAsync("Search")
 <!--Rooms-->
-<section class="section-padding">
+<section class=" rooms1 section-padding">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="section-subtitle">Images</div>
-                <div class="section-title">Image Gallery</div>
+                <div class="section-subtitle">Rooms</div>
+                <div class="section-title">All Rooms</div>
             </div>
             @foreach (var item in Model.Items)
             {
@@ -20,13 +18,10 @@
                         <div class="position-re o-hidden">
                             <img width="100%" height="100%" src="~/assets/img/room/@item.RoomImages.Where(x=>x.IsMain==true).FirstOrDefault().Image" alt="">
                         </div>
-                        <span class="category"><a href="rooms2.html">Book</a></span>
+                        <span class="category"><a asp-controller="Room" asp-action="Details" asp-route-id="@item.Id">Details</a></span>
                         <div class="con">
                             <h5>@item.RoomType.Name</h5>
                             <div class="line"></div>
-                        </div>
-                        <div class="col-md-6">
-                            <a asp-controller="Room" asp-action="Details" asp-route-id="@item.Id"><i class="fa-solid fa-circle-info"></i></a>
                         </div>
                     </div>
                 </div>

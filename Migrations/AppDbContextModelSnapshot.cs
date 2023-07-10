@@ -163,6 +163,53 @@ namespace Hotel.Migrations
                     b.ToTable("Bookings");
                 });
 
+            modelBuilder.Entity("Hotel.Models.Client", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Clients");
+                });
+
+            modelBuilder.Entity("Hotel.Models.Comment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("AppUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("Create")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RoomId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("RoomId");
+
+                    b.ToTable("Comments");
+                });
+
             modelBuilder.Entity("Hotel.Models.Employee", b =>
                 {
                     b.Property<int>("Id")
@@ -251,6 +298,27 @@ namespace Hotel.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Faqs");
+                });
+
+            modelBuilder.Entity("Hotel.Models.HeaderSection", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Key")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("HeaderSections");
                 });
 
             modelBuilder.Entity("Hotel.Models.Profession", b =>
@@ -661,6 +729,25 @@ namespace Hotel.Migrations
                     b.Navigation("Room");
                 });
 
+            modelBuilder.Entity("Hotel.Models.Comment", b =>
+                {
+                    b.HasOne("Hotel.Models.AppUser", "AppUser")
+                        .WithMany("Comments")
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Hotel.Models.Room", "Room")
+                        .WithMany("Comments")
+                        .HasForeignKey("RoomId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("Room");
+                });
+
             modelBuilder.Entity("Hotel.Models.Employee", b =>
                 {
                     b.HasOne("Hotel.Models.Profession", "Profession")
@@ -748,6 +835,8 @@ namespace Hotel.Migrations
             modelBuilder.Entity("Hotel.Models.AppUser", b =>
                 {
                     b.Navigation("Bookings");
+
+                    b.Navigation("Comments");
                 });
 
             modelBuilder.Entity("Hotel.Models.Profession", b =>
@@ -758,6 +847,8 @@ namespace Hotel.Migrations
             modelBuilder.Entity("Hotel.Models.Room", b =>
                 {
                     b.Navigation("Bookings");
+
+                    b.Navigation("Comments");
 
                     b.Navigation("RoomImages");
                 });

@@ -18,6 +18,7 @@ namespace Hotel.Models
         public RoomType? RoomType { get; set; }
         public List<Bookings>? Bookings { get; set; }
         public List<RoomImage>? RoomImages { get; set; }
+        public List<Comment>? Comments { get; set; }
         [NotMapped]
         public IFormFile? MainFile { get; set; }
         [NotMapped]

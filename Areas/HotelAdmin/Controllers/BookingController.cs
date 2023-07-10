@@ -22,8 +22,8 @@ namespace Hotel.Areas.HotelAdmin.Controllers
 
         public async Task<IActionResult> Index(int page = 1,int take = 10)
 		{
-			var bookings = await _context.Bookings.Include(x => x.Room).Include(x => x.AppUser).Where(b => b.Status == true)
-				.Skip((page - 1) * take).Take(take).OrderByDescending(x => x.Id).ToListAsync();
+			var bookings = await _context.Bookings.Where(b => b.Status == true).OrderByDescending(x => x.Id).Include(x => x.Room).Include(x => x.AppUser)
+				.Skip((page - 1) * take).Take(take).ToListAsync();
 			PaginateVM<Bookings> paginate = new PaginateVM<Bookings>()
 			{
 				Items = bookings,
@@ -39,7 +39,7 @@ namespace Hotel.Areas.HotelAdmin.Controllers
 		}
 		public async Task<IActionResult> PendingBooking(int page = 1,int take = 10)
 		{
-			var bookings = await _context.Bookings.Include(x => x.Room).Where(b => b.Status == null).Skip((page-1)*take).Take(take).OrderByDescending(x => x.Id).ToListAsync();
+			var bookings = await _context.Bookings.Where(b => b.Status == null).OrderByDescending(x => x.Id).Include(x => x.Room).Skip((page-1)*take).Take(take).ToListAsync();
 			PaginateVM<Bookings> paginate = new PaginateVM<Bookings>()
 			{
 				Items = bookings,

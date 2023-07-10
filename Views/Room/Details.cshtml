@@ -2,12 +2,12 @@
 @{
     ViewData["Title"] = "Details";
 }
-@model Room
+@model CommentVM
 <!-- Room Page Slider -->
 <header class="header slider">
     <div class="owl-carousel owl-theme">
         <!-- The opacity on the image is made with "data-overlay-dark="number". You can change it using the numbers 0-9. -->
-        @foreach (var item in Model.RoomImages.Where(x=>x.IsMain==false))
+        @foreach (var item in Model.Room.RoomImages.Where(x=>x.IsMain==false))
         {
             <div class="text-center item bg-img" data-overlay-dark="3" data-background="../../assets/img/room/@item.Image"></div>
         }
@@ -30,8 +30,8 @@
                     <i class="star-rating"></i>
                     <i class="star-rating"></i>
                 </span>
-                <div class="section-subtitle">@Model.RoomNumber</div>
-                <div class="section-title">@Model.RoomType.Name</div>
+                <div class="section-subtitle">@Model.Room.RoomNumber</div>
+                <div class="section-title">@Model.Room.RoomType.Name</div>
             </div>
             <div class="col-md-8">
                 <div class="row">
@@ -41,7 +41,7 @@
                             <li>
                                 <div class="page-list-icon"> <span class="ti-check"></span> </div>
                                 <div class="page-list-text">
-                                    <p>@Model.ChildrenCapacity</p>
+                                    <p>@Model.Room.ChildrenCapacity</p>
                                 </div>
                             </li>
                         </ul>
@@ -52,29 +52,62 @@
                             <li>
                                 <div class="page-list-icon"> <span class="ti-check"></span> </div>
                                 <div class="page-list-text">
-                                    <p>@Model.PeopleCapacity</p>
+                                    <p>@Model.Room.PeopleCapacity</p>
                                 </div>
                             </li>
                         </ul>
                     </div>
                     <div class="col-md-12">
                         <h6>RoomPrice</h6>
-                        <p>@Model.RoomPrice</p>
+                        <p>@Model.Room.RoomPrice</p>
                     </div>
                     <div class="col-md-12">
                         <h6>Bookings Count</h6>
-                        <p>@Model.Bookings.Count</p>
+                        <p>@Model.Room.Bookings.Count()</p>
                     </div>
                     <div class="col-md-12">
                         <h6>Area</h6>
-                        <p>@Model.Area</p>
+                        <p>@Model.Room.Area</p>
                     </div>
                     <div class="col-md-12">
-                        <div class="butn-dark mt-15 mb-30"> <a asp-controller="Room" asp-action="index"><span>Back to Room</span></a> </div>
+                        <div class="butn-dark mt-15 mb-30"> <a asp-controller="Room" asp-action="Search"><span>Back to Room</span></a> </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
+<!--Comments-->
+<section class="testimonials">
+    <div class="background bg-img bg-fixed section-padding pb-0" data-background="../../assets/img/slider/2.jpg" data-overlay-dark="3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <div class="testimonials-box">
+                        <div class="head-box">
+                            <h6>Testimonials</h6>
+                            <h4>What Client's Say?</h4>
+                            <div class="line"></div>
+                        </div>
+                        <div class="owl-carousel owl-theme">
+                            @foreach (var item in Model.Comments)
+                            {
+                                <div class="item">
+                                    <div class="info">                                     
+                                        <div >
+                                            <h6>@item.AppUser.UserName</h6>
+                                        </div>
+                                    </div>
+                                    <span class="quote"><img src="~/assets/img/quot.png" alt=""></span>
+                                    <p>@item.Description</p>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Add Comments-->
+@await Component.InvokeAsync("Comment",new { id = Model.Room.Id})
